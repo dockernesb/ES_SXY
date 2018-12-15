@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.udatech.common.resourceManage.model">
+	<class name="Theme" table="DZ_THEME">
+		<meta attribute="sync-DAO">false</meta>
+		<id column="ID" name="id" type="string">
+			<generator class="uuid" />
+		</id>
+		<property column="CREATE_TIME" generated="never" lazy="false" name="createTime" not-null="true" type="timestamp" />
+		<property column="PARENT_ID" generated="never" lazy="false" length="50" name="parentId" type="string" />
+		<property column="TYPE" generated="never" lazy="false" length="50" name="type" type="string" />
+		<property column="TYPE_NAME" generated="never" lazy="false" length="200" name="typeName" type="string" />
+		<property column="DATA_SOURCE" generated="never" lazy="false" length="50" name="dataSource" type="string" />
+		<property column="DATA_TABLE" generated="never" lazy="false" length="200" name="dataTable" type="string" />
+		<property column="STATUS" generated="never" lazy="false" length="50" name="status" type="string" />
+		<property column="ZYYT" generated="never" lazy="false" length="250" name="zyyt" type="string" />
+		<property column="DISPLAY_ORDER" name="displayOrder" type="integer" not-null="true" length="4" />
+	</class>
+</hibernate-mapping>

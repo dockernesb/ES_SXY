@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.udatech.center.schema.model.DpTableVersion"
+		table="DP_TABLE_VERSION">
+
+		<id name="id" type="java.lang.String">
+			<column name="ID" length="50" />
+		</id>
+
+		<property name="version" type="java.lang.String">
+			<column name="VERSION" />
+		</property>
+		<property name="description" type="java.lang.String">
+			<column name="DESCRIPTION" />
+		</property>
+		<property name="status" type="java.lang.String">
+			<column name="STATUS" />
+		</property>
+		<property name="createTime" type="java.util.Date">
+			<column name="CREATE_TIME" />
+		</property>
+		<property name="updateTime" type="java.util.Date">
+			<column name="UPDATE_TIME" />
+		</property>
+		<property name="createUser" type="java.lang.String">
+			<column name="CREATE_USER" />
+		</property>
+		<property name="updateUser" type="java.lang.String">
+			<column name="UPDATE_USER" />
+		</property>
+	</class>
+</hibernate-mapping>

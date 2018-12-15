@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.udatech.center.schema.model.DpTableVersionConfig"
+		table="DP_TABLE_VERSION_CONFIG">
+
+		<id name="id" type="java.lang.String">
+			<column name="ID" length="50" />
+		</id>
+
+		<property name="logicTableId" type="java.lang.String">
+			<column name="LOGIC_TABLE_ID" />
+		</property>
+		<property name="tableVersionId" type="java.lang.String">
+			<column name="TABLE_VERSION_ID" />
+		</property>
+		<property name="isCheckDate" type="java.lang.String">
+			<column name="IS_CHECK_DATE" />
+		</property>
+		<property name="isCheckRepeat" type="java.lang.String">
+			<column name="IS_CHECK_REPEAT" />
+		</property>
+		<property name="beginDateCode" type="java.lang.String">
+			<column name="BEGIN_DATE_CODE" />
+		</property>
+		<property name="endDateCode" type="java.lang.String">
+			<column name="END_DATE_CODE" />
+		</property>
+		<property name="repeatCodes" type="java.lang.String">
+			<column name="REPEAT_CODES" />
+		</property>
+
+		<property name="createTime" type="java.util.Date">
+			<column name="CREATE_TIME" />
+		</property>
+		<property name="updateTime" type="java.util.Date">
+			<column name="UPDATE_TIME" />
+		</property>
+		<property name="createUser" type="java.lang.String">
+			<column name="CREATE_USER" />
+		</property>
+		<property name="updateUser" type="java.lang.String">
+			<column name="UPDATE_USER" />
+		</property>
+	</class>
+</hibernate-mapping>

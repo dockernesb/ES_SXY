@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--job存储使用持久化存储方案时，用于job初始化，不会覆盖已存在的 -->
+    <bean name="quartzInitListenerDataProcess" class="com.wa.framework.quartz.JobInit">
+        <property name="scheduler" ref="scheduler"/>
+        <property name="jobs">
+            <list>
+                <ref bean="fileParseJob"/>
+                <ref bean="wglDataUpdateJob"/>
+                <ref bean="fileErrParseJob" />
+            </list>
+        </property>
+    </bean>
+    <bean name="scheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean" autowire="no" lazy-init="false">
+        <!-- job存储使用持久化存储方案时指定的数据源 -->
+        <property name="dataSource" ref="dataSource"/>
+        <property name="applicationContextSchedulerContextKey" value="applicationContextKey"/>
+        <!-- quartz.properties配置文件路径 -->
+        <property name="configLocation" value="classpath:properties/quartz.properties"/>
+        <property name="autoStartup" value="true"/>
+    </bean>
+
+    <bean name="fileParseJob" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <property name="jobClass" value="com.wa.framework.quartz.job.FileParseJob"></property>
+        <property name="name" value="fileParseJob"></property>
+        <property name="durability" value="true"></property>
+        <property name="description" value="定时解析数据文件，将数据入库"></property>
+    </bean>
+
+    <bean name="wglDataUpdateJob" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <property name="jobClass" value="com.wa.framework.quartz.job.WglDataUpdateJob"></property>
+        <property name="name" value="wglDataUpdateJob"></property>
+        <property name="durability" value="true"></property>
+        <property name="description" value="未关联数据状态更新"></property>
+    </bean>
+
+    <bean name="fileErrParseJob" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <property name="jobClass" value="com.wa.framework.quartz.job.FileErrorParseJob"></property>
+        <property name="name" value="fileErrParseJob"></property>
+        <property name="durability" value="true"></property>
+        <property name="description" value="定时解析疑问数据"></property>
+    </bean>
+
+</beans>

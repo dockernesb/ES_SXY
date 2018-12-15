@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.udatech.common.model.CreditCommitmentQy" table="CN_CREDIT_COMMITMENT_QY">
+		<id name="id" type="java.lang.String">
+			<column name="ID" length="50" />
+			<generator class="uuid.hex" />
+		</id>
+		<property name="qymc" type="java.lang.String">
+			<column name="QYMC" length="500">
+				<comment>企业名称</comment>
+			</column>
+		</property>
+		<property name="gszch" type="java.lang.String">
+			<column name="GSZCH" length="200">
+				<comment>工商注册号</comment>
+			</column>
+		</property>
+		<property name="zzjgdm" type="java.lang.String">
+			<column name="ZZJGDM" length="200">
+				<comment>组织机构代码</comment>
+			</column>
+		</property>
+		<property name="tyshxydm" type="java.lang.String">
+			<column name="TYSHXYDM" length="100">
+				<comment>统一社会信用代码</comment>
+			</column>
+		</property>
+		<property name="cnlb" type="java.lang.String">
+			<column name="CNLB" length="50">
+				<comment>承诺类别</comment>
+			</column>
+		</property>
+		<property name="deptId" type="java.lang.String">
+			<column name="DEPT_ID" length="50">
+				<comment>监管部门id</comment>
+			</column>
+		</property>
+		<property name="createUser" type="java.lang.String">
+			<column name="CREATE_USER" length="50">
+				<comment>创建人id</comment>
+			</column>
+		</property>
+		<property name="createTime" type="java.util.Date">
+			<column name="CREATE_TIME">
+				<comment>创建时间</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

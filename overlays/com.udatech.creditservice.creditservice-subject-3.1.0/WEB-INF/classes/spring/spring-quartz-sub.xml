@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+
+	<!--job存储使用持久化存储方案时，用于job初始化，不会覆盖已存在的 -->
+	<bean name="quartzInitListenerSub" class="com.wa.framework.quartz.JobInit">
+		<property name="scheduler" ref="scheduler" />
+		<property name="jobs">
+			<list>
+				<ref bean="recordGdjsInfoJob" />
+			</list>
+		</property>
+	</bean>
+
+	<bean name="scheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean" autowire="no" lazy-init="false">
+		<!-- job存储使用持久化存储方案时指定的数据源 -->
+		<property name="dataSource" ref="dataSource" />
+		<property name="applicationContextSchedulerContextKey" value="applicationContextKey" />
+		<!-- quartz.properties配置文件路径 -->
+		<property name="configLocation" value="classpath:properties/quartz.properties" />
+		<property name="autoStartup" value="true" />
+	</bean>
+	
+	<bean name="recordGdjsInfoJob" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+		<property name="jobClass" value="com.wa.framework.quartz.job.RecordGdjsInfoJob"></property>
+		<property name="name" value="recordGdjsInfoJob"></property>
+		<property name="durability" value="true"></property>
+		<property name="description" value="执行记录董事高管信息变更操作"></property>
+	</bean>
+</beans>

@@ -1,0 +1,21 @@
+.dashboard-stat{position:relative}
+.marginRight_20{margin-right:20px;cursor:pointer}
+.elementsOpa{width:100%;height:20px;position:absolute;top:0px;}
+
+.elementsActive{background:#000;opacity:0.4; font-weight:bold;z-index:100 !important;padding:0;animation:mymove 0.5s 1; animation: progress-bar-stripes 2s linear infinite; -webkit-animation: progress-bar-stripes 2s linear infinite;
+    background-image:linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+    background-size: 40px 40px;}
+.elementsActive1{background:#000;opacity:0.4; font-weight:bold;z-index:100 !important;padding:0;animation:mymove 0.5s 1; }
+.marginRight_5{margin-right:5px}
+.marginBottom_5{margin-bottom:5px;}
+#dataTable .heading th{text-align:center}
+#dataTable .subHeading th{text-align:center;}
+#dataTable .odd,#dataTable .even{text-align:right}
+#dataTable .odd :first-child,#dataTable .odd :nth-child(2),#dataTable .even :first-child,#dataTable .even :nth-child(2){text-align:center}
+/* #dataTable .odd :nth-child(3),#dataTable .even :nth-child(3){text-align:left} */
+#dataTable2 .odd :nth-child(6),#dataTable2 .even :nth-child(6){text-align:center}
+@keyframes mymove
+{
+from {top:-20px;}
+to {top:0px;}
+}

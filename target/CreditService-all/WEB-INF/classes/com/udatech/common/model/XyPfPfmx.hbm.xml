@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-9-28 16:48:56 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.udatech.common.model.XyPfPfmx" table="XY_PF_PFMX">
+		<id name="mxbh" type="string">
+			<column name="MXBH" />
+			<generator class="assigned" />
+		</id>
+		<property name="mxmc" type="string">
+			<column name="MXMC" not-null="true">
+			</column>
+		</property>
+		<property name="mxms" type="string">
+			<column name="MXMS" not-null="true">
+			</column>
+		</property>
+		<property name="status" type="string">
+			<column name="STATUS">
+			</column>
+		</property>
+		<property name="createTime" type="timestamp">
+			<column name="CREATE_TIME" >
+			</column>
+		</property>
+		<property name="createUser" type="string">
+			<column name="CREATE_USER">
+			</column>
+		</property>
+		<property name="updateTime" type="timestamp">
+			<column name="UPDATE_TIME" >
+			</column>
+		</property>
+		<property name="updateUser" type="string">
+			<column name="UPDATE_USER" >
+			</column>
+		</property>
+		<property name="bz" type="string">
+			<column name="BZ">
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

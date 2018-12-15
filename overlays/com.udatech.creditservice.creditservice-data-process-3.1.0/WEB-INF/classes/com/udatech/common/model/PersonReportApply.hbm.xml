@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.udatech.common.model.PersonReportApply" table="DT_PERSON_REPORT_APPLY">
+		<id name="id" type="java.lang.String">
+			<column length="50" name="ID" />
+			<generator class="uuid.hex" />
+		</id>
+		<property generated="never" lazy="false" name="bjbh" type="java.lang.String">
+			<column length="50" name="BJBH">
+				<comment>办件编号</comment>
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="cxrxm" type="java.lang.String">
+			<column name="CXRXM">
+				<comment>查询人姓名</comment>
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="cxrsfzh" type="java.lang.String">
+			<column name="CXRSFZH">
+				<comment>查询人身份证号</comment>
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="wtrxm" type="java.lang.String">
+			<column name="WTRXM">
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="wtrsfzh" type="java.lang.String">
+			<column name="WTRSFZH">
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="wtrlxdh" type="java.lang.String">
+			<column name="WTRLXDH">
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="bz" type="java.lang.String">
+			<column name="BZ">
+				<comment>备注</comment>
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="status" type="java.lang.String">
+			<column name="STATUS">
+				<comment>状态</comment>
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="createDate" type="java.util.Date">
+			<column name="CREATE_DATE">
+				<comment>创建时间</comment>
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="zxshyj" type="java.lang.String">
+			<column name="ZXSHYJ">
+				<comment>中心审核意见</comment>
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="zxshsj" type="java.util.Date">
+			<column name="ZXSHSJ">
+				<comment>中心审核时间</comment>
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="sqbgqssj" type="java.util.Date">
+			<column name="SQBGQSSJ">
+				<comment>申请报告起始时间</comment>
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="sqbgjzsj" type="java.util.Date">
+			<column name="SQBGJZSJ">
+				<comment>申请报告截止时间</comment>
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="type" type="java.lang.String">
+			<column name="TYPE">
+				<comment>查询类型（0:本人自查,1:委托查询）</comment>
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="purpose" type="java.lang.String">
+			<column name="PURPOSE">
+				<comment>申请报告用途（0信用审核、1其它）</comment>
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="xybgbh" type="java.lang.String">
+			<column name="XYBGBH">
+				<comment>信用报告编号</comment>
+			</column>
+		</property>
+		
+		<property generated="never" lazy="false" name="isHasBasic" type="java.lang.String">
+			<column name="IS_HAS_BASIC">
+				<comment>是否有个人基本信息（0：无，1：有）</comment>
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="isHasReport" type="java.lang.String">
+			<column name="IS_HAS_REPORT">
+				<comment>是否有省报告（0：无，1：有）</comment>
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="noReportCause" type="java.lang.String">
+			<column name="NO_REPORT_CAUSE">
+				<comment>无省报告的原因</comment>
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="isIssue" type="java.lang.String">
+			<column name="IS_ISSUE">
+				<comment>是否已下发（0：未下发，1：已下发）</comment>
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="issueOpition" type="java.lang.String">
+			<column name="ISSUE_OPITION">
+				<comment>下发意见</comment>
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="issueDate" type="java.util.Date">
+			<column name="ISSUE_DATE">
+				<comment>下发时间</comment>
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="isAuditBack" type="java.lang.String">
+			<column name="IS_AUDIT_BACK">
+				<comment>是否已退回审核（0：未退回，1：已退回）</comment>
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="auditBackDate" type="java.util.Date">
+			<column name="AUDIT_BACK_DATE">
+				<comment>审核退回时间</comment>
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="auditBackUser" type="java.lang.String">
+			<column name="AUDIT_BACK_USER">
+				<comment>审核退回用户ID</comment>
+			</column>
+		</property>
+		
+		<many-to-one class="com.wa.framework.user.model.SysUser" column="UPDATE_ID" lazy="false" name="updateUser" />
+		<many-to-one class="com.wa.framework.user.model.SysUser" column="CREATE_ID" lazy="false" name="createUser" />
+		<many-to-one class="com.wa.framework.user.model.SysUser" column="ZXSHR" lazy="false" name="zxshr" />
+	</class>
+</hibernate-mapping>

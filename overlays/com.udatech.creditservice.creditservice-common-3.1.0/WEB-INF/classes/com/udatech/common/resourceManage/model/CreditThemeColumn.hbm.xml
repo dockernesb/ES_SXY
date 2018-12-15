@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.udatech.common.resourceManage.model">
+ <class name="CreditThemeColumn" table="DZ_CREDIT_THEME_COLUMN">
+  <meta attribute="sync-DAO">false</meta>
+  <id column="ID" name="id" type="string">
+   <generator class="uuid"/>
+  </id>
+  <property column="CREATE_TIME" generated="never" lazy="false"
+   name="createTime" not-null="true" type="timestamp"/>
+  <property column="CREDIT_THEME_ID" generated="never" lazy="false"
+   length="50" name="creditThemeId" not-null="true" type="string"/>
+  <property column="THEME_COLUMN_ID" generated="never" lazy="false"
+   length="50" name="themeColumnId" not-null="true" type="string"/>
+  <property column="DISPLAY_ORDER" generated="never" lazy="false"
+   length="4" name="displayOrder" type="integer"/>
+  <property column="STATUS" generated="never" lazy="false" length="50"
+   name="status" type="string"/>
+ </class>
+</hibernate-mapping>

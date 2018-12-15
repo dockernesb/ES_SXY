@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.udatech.common.model.CreditInfo" table="DT_ENTERPRISE_CREDIT">
+		<id name="id" type="java.lang.String">
+			<column name="ID" />
+			<generator class="uuid.hex" />
+		</id>
+		<property name="businessId" type="java.lang.String">
+			<column name="BUSINESS_ID" />
+		</property>
+		<property name="dataTable" type="java.lang.String">
+			<column name="DATA_TABLE" />
+		</property>
+		<property name="thirdId" type="java.lang.String">
+			<column name="THIRD_ID" />
+		</property>
+		<property name="bjbh" type="java.lang.String">
+			<column name="BJBH" length="50">
+				<comment>办件编号</comment>
+			</column>
+		</property>
+		<property name="status" type="java.lang.String">
+			<column name="STATUS">
+				<comment>处理状态</comment>
+			</column>
+		</property>
+		<property name="deptCode" type="java.lang.String">
+			<column name="DEPT_CODE">
+				<comment>数据提供部门编码</comment>
+			</column>
+		</property>
+		<property name="deptName" type="java.lang.String">
+			<column name="DEPT_NAME">
+				<comment>数据提供部门名称</comment>
+			</column>
+		</property>
+		<property name="zxshyj" type="java.lang.String">
+			<column name="ZXSHYJ">
+				<comment>中心审核意见</comment>
+			</column>
+		</property>
+		<property name="zxshsj" type="java.util.Date">
+			<column name="ZXSHSJ">
+				<comment>中心审核时间</comment>
+			</column>
+		</property>
+		<property name="bmshyj" type="java.lang.String">
+			<column name="BMSHYJ">
+				<comment>部门审核意见</comment>
+			</column>
+		</property>
+		<property name="bmshsj" type="java.util.Date">
+			<column name="BMSHSJ">
+				<comment>部门审核时间</comment>
+			</column>
+		</property>
+		<many-to-one name="zxshr" column="ZXSHR"
+			class="com.wa.framework.user.model.SysUser" lazy="false">
+		</many-to-one>
+		<many-to-one name="bmshr" column="BMSHR"
+			class="com.wa.framework.user.model.SysUser" lazy="false">
+		</many-to-one>
+		<property name="category" type="java.lang.String">
+			<column name="CATEGORY">
+				<comment>种类</comment>
+			</column>
+		</property>
+		<property name="type" type="java.lang.String">
+			<column name="TYPE">
+				<comment>信用类型</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

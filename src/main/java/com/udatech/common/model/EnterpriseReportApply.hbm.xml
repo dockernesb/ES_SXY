@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.udatech.common.model.EnterpriseReportApply" table="DT_ENTERPRISE_REPORT_APPLY">
+		<id name="id" type="java.lang.String">
+			<column length="50" name="ID" />
+			<generator class="uuid.hex" />
+		</id>
+		<property generated="never" lazy="false" name="bjbh" type="java.lang.String">
+			<column length="50" name="BJBH">
+				<comment>办件编号</comment>
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="qymc" type="java.lang.String">
+			<column name="QYMC">
+				<comment>企业名称</comment>
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="gszch" type="java.lang.String">
+			<column name="GSZCH">
+				<comment>工商注册号</comment>
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="zzjgdm" type="java.lang.String">
+			<column length="50" name="ZZJGDM">
+				<comment>组织机构代码</comment>
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="tyshxydm" type="java.lang.String">
+			<column name="TYSHXYDM">
+				<comment>社会信用代码</comment>
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="jbrxm" type="java.lang.String">
+			<column name="JBRXM">
+				<comment>经办人姓名</comment>
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="jbrsfzhm" type="java.lang.String">
+			<column name="JBRSFZHM">
+				<comment>经办人身份证号码</comment>
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="jbrlxdh" type="java.lang.String">
+			<column length="50" name="JBRLXDH">
+				<comment>经办人联系电话</comment>
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="bz" type="java.lang.String">
+			<column name="BZ">
+				<comment>备注</comment>
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="status" type="java.lang.String">
+			<column name="STATUS">
+				<comment>状态</comment>
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="createDate" type="java.util.Date">
+			<column name="CREATE_DATE">
+				<comment>创建时间</comment>
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="zxshyj" type="java.lang.String">
+			<column name="ZXSHYJ">
+				<comment>中心审核意见</comment>
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="zxshsj" type="java.util.Date">
+			<column name="ZXSHSJ">
+				<comment>中心审核时间</comment>
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="sqbgqssj" type="java.util.Date">
+			<column name="SQBGQSSJ">
+				<comment>申请报告起始时间</comment>
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="sqbgjzsj" type="java.util.Date">
+			<column name="SQBGJZSJ">
+				<comment>申请报告截止时间</comment>
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="sqqymc" type="java.lang.String">
+			<column name="SQQYMC">
+				<comment>授权企业名称</comment>
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="sqgszch" type="java.lang.String">
+			<column name="SQGSZCH">
+				<comment>授权工商注册号</comment>
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="sqzzjgdm" type="java.lang.String">
+			<column length="50" name="SQZZJGDM">
+				<comment>授权组织机构代码</comment>
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="sqtyshxydm" type="java.lang.String">
+			<column name="SQTYSHXYDM">
+				<comment>授权社会信用代码</comment>
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="type" type="java.lang.String">
+			<column name="TYPE">
+				<comment>查询类型（0:企业自查,1:委托查询）</comment>
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="purpose" type="java.lang.String">
+			<column name="PURPOSE">
+				<comment>申请报告用途（0专项资金、1招投标、2评优评先、3其它）</comment>
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="xybgbh" type="java.lang.String">
+			<column name="XYBGBH">
+				<comment>信用报告编号</comment>
+			</column>
+		</property>
+		
+		<property generated="never" lazy="false" name="isHasBasic" type="java.lang.String">
+			<column name="IS_HAS_BASIC">
+				<comment>是否有企业基本信息（0：无，1：有）</comment>
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="isHasReport" type="java.lang.String">
+			<column name="IS_HAS_REPORT">
+				<comment>是否有省报告（0：无，1：有）</comment>
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="noReportCause" type="java.lang.String">
+			<column name="NO_REPORT_CAUSE">
+				<comment>无省报告的原因</comment>
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="isIssue" type="java.lang.String">
+			<column name="IS_ISSUE">
+				<comment>是否已下发（0：未下发，1：已下发）</comment>
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="issueOpition" type="java.lang.String">
+			<column name="ISSUE_OPITION">
+				<comment>下发意见</comment>
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="issueDate" type="java.util.Date">
+			<column name="ISSUE_DATE">
+				<comment>下发时间</comment>
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="isAuditBack" type="java.lang.String">
+			<column name="IS_AUDIT_BACK">
+				<comment>是否已退回审核（0：未退回，1：已退回）</comment>
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="auditBackDate" type="java.util.Date">
+			<column name="AUDIT_BACK_DATE">
+				<comment>审核退回时间</comment>
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="auditBackUser" type="java.lang.String">
+			<column name="AUDIT_BACK_USER">
+				<comment>审核退回用户ID</comment>
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="areaDepts" type="java.lang.String">
+			<column name="AREA_DEPTS">
+				<comment>区域部门</comment>
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="projectName" type="java.lang.String">
+			<column name="PROJECT_NAME">
+				<comment>项目名称</comment>
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="projectXL" type="java.lang.String">
+			<column name="PROJECT_XL">
+				<comment>项目细类</comment>
+			</column>
+		</property>
+		
+		<many-to-one class="com.wa.framework.user.model.SysUser" column="UPDATE_ID" lazy="false" name="updateUser" />
+		<many-to-one class="com.wa.framework.user.model.SysUser" column="CREATE_ID" lazy="false" name="createUser" />
+		<many-to-one class="com.wa.framework.user.model.SysUser" column="ZXSHR" lazy="false" name="zxshr" />
+	</class>
+</hibernate-mapping>

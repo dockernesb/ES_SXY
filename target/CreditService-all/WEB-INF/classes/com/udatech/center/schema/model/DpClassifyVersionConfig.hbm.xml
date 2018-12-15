@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.udatech.center.schema.model.DpClassifyVersionConfig"
+		table="DP_CLASSIFY_VERSION_CONFIG">
+
+		<id name="id" type="java.lang.String">
+			<column name="ID" length="50" />
+			<generator class="uuid.hex" />
+		</id>
+
+		<property name="logicClassifyId" type="java.lang.String">
+			<column name="LOGIC_CLASSIFY_ID" />
+		</property>
+		<property name="tableVersionId" type="java.lang.String">
+			<column name="TABLE_VERSION_ID" />
+		</property>
+		<property name="createTime" type="java.util.Date">
+			<column name="CREATE_TIME" />
+		</property>
+		<property name="createUser" type="java.lang.String">
+			<column name="CREATE_USER" />
+		</property>
+		<property name="updateTime" type="java.util.Date">
+			<column name="UPDATE_TIME" />
+		</property>
+		<property name="updateUser" type="java.lang.String">
+			<column name="UPDATE_USER" />
+		</property>
+	</class>
+</hibernate-mapping>

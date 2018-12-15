@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.udatech.center.schema.model.DpLogicCommonColumn"
+           table="DP_LOGIC_COMMON_COLUMN">
+
+        <id name="id" type="java.lang.String">
+            <column name="ID" length="50"/>
+            <generator class="uuid.hex"/>
+        </id>
+
+        <property name="code" type="java.lang.String">
+            <column name="CODE"/>
+        </property>
+        <property name="name" type="java.lang.String">
+            <column name="NAME"/>
+        </property>
+        <property name="columnType" type="java.lang.String">
+            <column name="COLUMN_TYPE"/>
+        </property>
+        <property name="len" type="java.lang.Integer">
+            <column name="COLUMN_LENGTH"/>
+        </property>
+        <property name="postil" type="java.lang.String">
+            <column name="POSTIL"/>
+        </property>
+        <property name="fieldSort" type="java.lang.Integer">
+            <column name="FIELD_SORT"/>
+        </property>
+    </class>
+</hibernate-mapping>

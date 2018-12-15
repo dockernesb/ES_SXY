@@ -1,0 +1,68 @@
+@charset "utf-8";
+/* 信用要素   */
+#mapContainer{width: 100%;margin: 0px;height: 640px;}
+#tip {/* background:#3e4b5c; *//* width:150px;height:28px; */position: absolute;font-size: 14px;/* left: 85px; */left: 198px;top: 20px;z-index:10; }
+#tip .tipA{display:block !important; background:#3e4b5c;width:80px !important;padding:0 10px; height:28px;text-decoration:none;color:#fff;line-height:28px;text-align:center;border-radius:4px; margin-bottom:7px;}
+#dropdowncks{ background:#3e4b5c !important;widht:200px; display:none;border-radius:4px;}
+#dropdowncks .btnOK{text-align:right;padding:7px 15px 9px 0;}
+#dropdowncks .btnOK a{color:#fff;text-decoration:none;}
+#dropdowncks .ztree{padding:10px 10px 0;}
+#dropdowncks .ztree li a {color:#fff !important;}
+.push{clear:both;}
+#dowebok,.dowebokBG{right:0px;top: 20px;width:240px;border-radius:4px; position: absolute;border:1px solid #eee !important;box-sizing:border-box;padding:22px 0 30px 16px;margin-right: 20px;z-index:1;}
+#dowebok .searchBtn{text-align:right;margin-right:15px}
+#dowebok .searchBtn button{font-size:12px;}
+.dowebokBG{height:555px;background-color:#fff; box-shadow: 5px 5px rgba(102, 102, 102, 0.1);opacity:0.8; z-index:3;}
+.sldTit{font-size:17px;color:#333;margin-bottom:15px;}
+.elementsIconBox{width:215px;}
+.elementsIconBox a{display:inline-box;float:left;margin-right:15px; margin-bottom:15px; color:#fff; text-decoration:none;}
+.elementsIconBox a dl{color:#fff; margin-bottom:0px;border-radius: 4px;}
+.elementsIconBox a dl dt,.elementsIconBox a dl dd{text-align:center;}
+.elementsIconBox a dl dt{font-size:14px; line-height:30px;padding-top:4px;}
+.elementsIconBox a dl dd{position:relative;width:56px;height:22px;}
+.elementsIconBox a dl dd span{font-size:12px;padding:2px 4px;border-radius: 0 0 4px 4px;position:absolute;left:0px;right:0px;top:0px;bottom:0px;z-index:2;}
+/* .elementsIconBox a dl.xyhob dd span.elementsOpa{background:#000;opacity:0.5; font-weight:bold;z-index:1;padding:0; } */
+.elementsActive{background:#000;opacity:0.5; font-weight:bold;z-index:1 !important;padding:0;}
+.zzry{background:#ff7070;}
+.qsxx{background:#bba7f4;}
+.xzxk{background:#93d36d;}
+.xzcf{background:#51d8c3;}
+.qfxx{background:#e27fda;}
+.cbqj{background:#71acf5;}
+.sldMod{height: 300px; overflow-y: auto;}
+.sldMod dl{margin-bottom:10px;}
+.sldMod dl dd{line-height:20px;}
+.sldMod dl dt{font-size:14px; font-weight:normal;line-height:28px; margin-bottom:6px;}
+.sldMod dl dd label{ display:block; margin-bottom:0px;font-size:12px; }
+.arrL{background:url(../../images/creditMap/arrL.png)}
+.arrR{background:url(../../images/creditMap/arrR.png)}
+.btnDark{display:inline-block; float:right;height:28px; line-height:28px; padding:0 10px; background:#3e4b5c; font-size:14px; margin-left:7px; color:#fff !important; text-decoration:none !important;  border-radius:4px;}
+.btnDark:hover,.btnDarkActive{ background:#5482bf; color:#fff;}
+.btnDarkBox{position:absolute;top:20px;/* right:20px; */left:10px;}
+.btnDarkBox a img{position:relative;top:-1px;}
+
+
+
+
+.infoWindow{background-color:#fff;width:260px;border-radius:4px; border:1px solid #89c4f4 !important;box-shadow: 5px 5px rgba(102, 102, 102, 0.1);padding:10px 10px 0px 10px;/* opacity:0.8; */}
+.infoWindow .info-top {position: relative;border-bottom: 1px solid #CCC;border-radius: 5px 5px 0 0;}
+.infoWindow .info-top div {display: inline-block;color: #333333;font-size: 14px;font-weight: bold;line-height: 31px;padding: 0 10px;}
+.infoWindow .info-top img { position: absolute; top: 10px;right: 0px;transition-duration: 0.25s;}
+.infoWindow .info-top img:hover {box-shadow: 0px 0px 5px #000;}
+.infoWindow .info-middle {padding-bottom:16px}
+.infoWindow .info-bottom {height: 0px;width: 100%;clear: both;text-align: center;}
+.infoWindow .info-bottom img {position: relative;z-index: 104;}
+.infoWindow .infoWinItem{display:block;margin-top:10px;padding:0 9px;}
+.infoWindow .infoWinBtn{width:178px;margin: 0 auto;}
+.amap-toolbar {top:80px !important}
+.amap-zoom-labels{display:none !important}
+
+.amap-logo {right: 0 !important;left: auto !important;display: none !important;}
+.amap-copyright {right: 70px !important;left: auto !important;display: none !important;}  
+
+.legendImg{left:5px;bottom: 10px;width:100px;border-radius:4px; position: absolute;background:#bbb;box-sizing:border-box;padding:5px 10px;z-index:1;opacity:0.8;}
+.legendImg img{margin-left:2px}
+.gray-meadow:hover{background-color:#999;}
+input[type=checkbox], input[type=radio] {
+    vertical-align: top;
+}

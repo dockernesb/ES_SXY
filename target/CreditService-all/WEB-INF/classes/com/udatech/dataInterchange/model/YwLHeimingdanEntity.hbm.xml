@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.udatech.dataInterchange.model.YwLHeimingdanEntity" table="YW_L_HEIMINGDAN">
+        <id name="id">
+            <column name="ID" sql-type="varchar2(50)" length="50"/>
+        </id>
+        <property name="status">
+            <column name="STATUS" sql-type="varchar2(2)" length="2"/>
+        </property>
+        <property name="source">
+            <column name="SOURCE" sql-type="varchar2(2)" length="2" />
+        </property>
+        <property name="createTime">
+            <column name="CREATE_TIME" sql-type="date" />
+        </property>
+        <property name="createUser">
+            <column name="CREATE_USER" sql-type="varchar2(50)" length="50" />
+        </property>
+        <property name="bmbm">
+            <column name="BMBM" sql-type="varchar2(50)" length="50" />
+        </property>
+        <property name="bmmc">
+            <column name="BMMC" sql-type="varchar2(200)" length="200" />
+        </property>
+        <property name="tgrq">
+            <column name="TGRQ" sql-type="date" />
+        </property>
+        <property name="rwbh">
+            <column name="RWBH" sql-type="varchar2(50)" length="50" />
+        </property>
+        <property name="zzjgdm">
+            <column name="ZZJGDM" sql-type="varchar2(200)" length="200" />
+        </property>
+        <property name="jgqcyw">
+            <column name="JGQCYW" sql-type="varchar2(200)" length="200" />
+        </property>
+        <property name="jgqc">
+            <column name="JGQC" sql-type="varchar2(200)" length="200" />
+        </property>
+        <property name="gszch">
+            <column name="GSZCH" sql-type="varchar2(200)" length="200" />
+        </property>
+        <property name="tyshxydm">
+            <column name="TYSHXYDM" sql-type="varchar2(200)" length="200" />
+        </property>
+        <property name="bz">
+            <column name="BZ" sql-type="varchar2(500)" length="500" />
+        </property>
+        <property name="rddw">
+            <column name="RDDW" sql-type="varchar2(200)" length="200" />
+        </property>
+        <property name="rdwh">
+            <column name="RDWH" sql-type="varchar2(200)" length="200" />
+        </property>
+        <property name="zcdz">
+            <column name="ZCDZ" sql-type="varchar2(500)" length="500" />
+        </property>
+        <property name="fddbr">
+            <column name="FDDBR" sql-type="varchar2(100)" length="100" />
+        </property>
+        <property name="fzrxm">
+            <column name="FZRXM" sql-type="varchar2(100)" length="100" />
+        </property>
+        <property name="zysxss">
+            <column name="ZYSXSS" sql-type="varchar2(4000)" length="4000" />
+        </property>
+        <property name="scfzynr">
+            <column name="SCFZYNR" sql-type="varchar2(4000)" length="4000" />
+        </property>
+        <property name="qryzsxrq">
+            <column name="QRYZSXRQ" sql-type="date" />
+        </property>
+        <property name="gsjzq">
+            <column name="GSJZQ" sql-type="date" />
+        </property>
+        <property name="jhdwqc">
+            <column name="JHDWQC" sql-type="varchar2(200)" length="200" />
+        </property>
+        <property name="jgdjId">
+            <column name="JGDJ_ID" sql-type="varchar2(50)" length="50" />
+        </property>
+        <property name="dqzt">
+            <column name="DQZT" sql-type="varchar2(2)" length="2"/>
+        </property>
+    </class>
+</hibernate-mapping>

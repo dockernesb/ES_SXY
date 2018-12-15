@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.udatech.center.schema.model.DpLogicClassify" table="DP_LOGIC_CLASSIFY">
+
+        <id name="id" type="java.lang.String">
+            <column name="ID" length="50"/>
+            <generator class="uuid.hex"/>
+        </id>
+
+        <property name="classifyName" type="java.lang.String">
+            <column name="CLASSIFY_NAME"/>
+        </property>
+        <property name="classifyRemark" type="java.lang.String">
+            <column name="CLASSIFY_REMARK"/>
+        </property>
+        <property name="pid" type="java.lang.String">
+            <column name="PID"/>
+        </property>
+        <property name="createUser" type="java.lang.String">
+            <column name="CREATE_USER"/>
+        </property>
+        <property name="createTime" type="java.util.Date">
+            <column name="CREATE_TIME"/>
+        </property>
+        <property name="updateUser" type="java.lang.String">
+            <column name="UPDATE_USER"/>
+        </property>
+        <property name="updateTime" type="java.util.Date">
+            <column name="UPDATE_TIME"/>
+        </property>
+        <property name="classifySort" type="java.lang.Integer">
+            <column name="CLASSIFY_SORT"/>
+        </property>
+    </class>
+</hibernate-mapping>

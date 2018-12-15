@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.2.xsd">
+		
+	<bean id="propertyConfigurer" class="com.wa.framework.common.PropertyConfigurer">       
+    	<property name="locations">
+			<list> 
+				<value>classpath:properties/jdbc.properties</value> 
+				<value>classpath:properties/app.properties</value>
+				<value>classpath:properties/license.properties</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">
+		<property name="driverClassName" value="${jdbc.system.driver}"/>
+        <property name="url" value="${jdbc.system.url}"/>
+        <property name="username" value="${jdbc.system.username}"/>
+        <property name="password" value="${jdbc.system.password}"/>
+        <property name="initialSize" value="${druid.initialSize}" />
+        <property name="maxActive" value="${druid.maxActive}"/>
+    	<property name="minIdle" value="${druid.minIdle}" />
+    	<property name="maxWait" value="${druid.maxWait}"/>
+    	
+    	<property name="poolPreparedStatements" value="${druid.poolPreparedStatements}"/>
+    	<property name="maxOpenPreparedStatements" value="${druid.maxOpenPreparedStatements}"/>
+    	<property name="validationQuery" value="${druid.validationQuery}"/>
+    	<property name="testOnBorrow" value="${druid.testOnBorrow}"/>
+    	<property name="testOnReturn" value="${druid.testOnReturn}"/>
+    	<property name="testWhileIdle" value="${druid.testWhileIdle}"/>
+    	<property name="timeBetweenEvictionRunsMillis" value="${druid.timeBetweenEvictionRunsMillis}"/>
+	</bean>
+	
+	<alias name="sessionFactory" alias="baseSessionFactory"/>
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="entityInterceptor">
+		    <!-- 默认设置所有表的createBy和createDate -->
+			<bean class="com.wa.framework.common.AuditInterceptor"/>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">${hibernate.system.dialect}</prop>
+				<prop key="hibernate.hbm2ddl.auto">${hibernate.system.hbm2ddl.auto}</prop>
+				<prop key="hibernate.show_sql">${hibernate.system.show_sql}</prop>
+				<prop key="hibernate.format_sql">${hibernate.system.format_sql}</prop>
+				<prop key="javax.persistence.validation.mode">none</prop> 
+			</props>
+		</property>
+		<property name="mappingDirectoryLocations">
+			<list>
+				<value>classpath:com/wa/**/model/</value>
+			</list>
+		</property>
+		<property name="packagesToScan">
+            <list>
+                <value>com.wa.framework.*.model</value>
+            </list>
+        </property>
+	</bean>
+	
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
+		<constructor-arg ref="dataSource"/>
+	</bean>
+	
+	<bean id="wajdbcTempleate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="get*" propagation="REQUIRED" read-only="true" />
+			<tx:method name="count*" propagation="REQUIRED" read-only="true" />
+			<tx:method name="find*" propagation="REQUIRED" read-only="true" />
+			<tx:method name="list*" propagation="REQUIRED" read-only="true" />
+			<tx:method name="*" propagation="REQUIRED"/>
+		</tx:attributes>
+	</tx:advice>
+
+	<aop:config expose-proxy="true">
+		<aop:pointcut id="txPointcut"      
+			expression="execution(* com.wa.framework..*.*Service*.*(..)) || execution(* com.wa.framework..*.*Service*.*(..))" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut" />
+	</aop:config> 
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	
+	<bean id="nativeJdbcExtractor"  
+        class="org.springframework.jdbc.support.nativejdbc.CommonsDbcpNativeJdbcExtractor"  
+        lazy-init="true"/>  
+  
+    <bean id="lobHandler"  
+        class="org.springframework.jdbc.support.lob.OracleLobHandler"  
+        lazy-init="true">
+	<property name="nativeJdbcExtractor" ref="nativeJdbcExtractor"/>       
+    </bean>  
+  
+    <bean id="defaultLobHandler"  
+     class="org.springframework.jdbc.support.lob.DefaultLobHandler"  
+     lazy-init="true" /> 	
+	
+	<context:component-scan base-package="com.wa" use-default-filters="false">
+		<context:include-filter type="regex" expression="com.wa.framework.dao.*"/>
+		<context:include-filter type="regex" expression="com.wa.framework.service.*"/>
+		<context:include-filter type="regex" expression="com.wa.framework.*.dao.*"/>
+		<context:include-filter type="regex" expression="com.wa.framework.*.service.*"/>
+		<context:include-filter type="regex" expression="com.wa.framework.workflow.service.*"/>
+		<context:include-filter type="regex" expression="com.wa.framework.dictionary.service.*"/>
+	</context:component-scan>
+	
+	<context:component-scan base-package="**.**.dao" />
+	<context:component-scan base-package="**.**.service" /> 	 
+	
+	<!-- <bean id="userService" class="com.wa.framework.user.service.UserService">  
+		<property name="md5Code">  
+			<value>${md5.code}</value>  
+		</property>  
+	</bean> -->
+	
+</beans>

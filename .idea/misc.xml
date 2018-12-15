@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file url="file://$PROJECT_DIR$/overlays" />
+    <file type="web" url="file://$PROJECT_DIR$" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" project-jdk-name="1.7" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/classes" />
+  </component>
+  <component name="SvnBranchConfigurationManager">
+    <option name="myConfigurationMap">
+      <map>
+        <entry key="$PROJECT_DIR$">
+          <value>
+            <SvnBranchConfiguration>
+              <option name="trunkUrl" value="https://project.citgc.com:8060/svn/repos/CITGC_CMS/02_CIU/54_%E5%B8%82%E4%BF%A1%E7%94%A8%E4%B8%89%E6%9C%9F/02_Code/03_Develop/CreditService-all" />
+            </SvnBranchConfiguration>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="mySupportsUserInfoFilter" value="true" />
+  </component>
+</project>

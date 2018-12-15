@@ -1,0 +1,36 @@
+.portlet-body{padding-top:0px !important}
+.btnDark{display:inline-block; height:28px; line-height:28px; padding:0 10px; background:#3e4b5c; font-size:14px; margin-left:7px; color:#fff !important; text-decoration:none !important;  border-radius:4px;}
+.btnDark:hover,.btnDarkActive{ background:#5482bf; color:#fff;}
+.marginBottom_5{margin-bottom:5px;}
+.marginTop_5{margin-top:5px;}
+.marginRight_5{margin-right:5px}
+.marginRight_10{margin-right:10px}
+.marginRight_15{margin-right:15px}
+.chart-title{display:inline-block;width:100%;text-align:center;font-weight:bold;font-size:18px}
+#percentPie{width: 100%; height: 450px;position:relative;top:60px;}
+path {stroke: #fff;fill-rule: evenodd;}
+.form-inline{line-height:25px;padding-top:10px}
+.conditionBox{position: relative;float:left;}
+.conditionBox .tipA{display:block; border:1px solid #e5e5e5;width:80px !important;padding:0 10px; height:34px;text-decoration:none;color:black;line-height:34px;text-align:center;border-radius:4px; margin-bottom:0px;}
+.conditionBox .treeBox {widht:200px;position:absolute;z-index:100;border:1px solid #799BD2;background:#fff; display:none;}
+.treeBox .btnOK{text-align:right;padding:7px 15px 9px 0;}
+.treeBox .btnOK a{color:black;text-decoration:none;}
+.treeBox .ztree{padding:10px 10px 0;}
+.treeBox .ztree li a {color:#black !important;}
+.select2-selection__rendered {border-radius:4px}
+.select2-selection--multiple,.select2-selection__rendered{border-color:#e5e5e5 !important;}
+.select2-selection--multiple{box-shadow:none !important;webkit-box-shadow:none !important}
+.toorBtn{width:100%;text-align:center; line-height: 0;cursor:pointer }
+.heading th{text-align:center}
+.topBox{margin: 0px 60px; text-align: left; border-bottom: 1px solid #dedede; padding-bottom: 10px;}
+#floatInfo{position: absolute; display: block; border: 0px solid rgb(51, 51, 51);z-index: 9999999; transition: left 0.4s cubic-bezier(0.23, 1, 0.32, 1), top 0.4s cubic-bezier(0.23, 1, 0.32, 1); border-radius: 4px; color: rgb(255, 255, 255); font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 14px; font-family: 'Microsoft YaHei'; line-height: 21px; padding: 5px; left: 367.2px; top: 273px; background-color: rgba(50, 50, 50, 0.701961);width:100px}
+.form_datetime{border: 1px solid #e5e5e5;border-radius:4px;height:34px}
+.svgBox-noData{height:300px; line-height:300px;text-align:center; border:1px dashed #e5e5e5}
+.inputSpan{display:inline-block}
+.subHeading th{text-align:center;}
+.btn{vertical-align: baseline;}
+.odd,.even{text-align:right}  
+.odd :first-child,.odd :nth-child(2),.even :first-child,.even :nth-child(2){text-align:center} 
+.odd :nth-child(3),.even :nth-child(3){text-align:left} 
+.conBox{float:left;margin-bottom:5px}
+.introduce{margin-left:55px;padding-top:15px;font-size:12px;color:#666}

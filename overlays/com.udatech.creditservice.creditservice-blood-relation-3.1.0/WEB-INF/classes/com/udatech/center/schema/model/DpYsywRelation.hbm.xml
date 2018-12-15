@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.udatech.center.schema.model.DpYsywRelation" table="DP_YSYW_RELATION">
+
+        <id name="id" type="java.lang.String">
+            <column name="ID" length="50"/>
+            <generator class="uuid.hex"/>
+        </id>
+
+        <property name="tableCode" type="java.lang.String">
+            <column name="TABLE_CODE"/>
+        </property>
+        <property name="ywTableName" type="java.lang.String">
+            <column name="YW_TABLE_NAME"/>
+        </property>
+    </class>
+</hibernate-mapping>

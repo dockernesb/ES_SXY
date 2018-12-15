@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.udatech.center.schema.model.DpLogicTableTemplate" table="DP_LOGIC_TABLE_TEMPLATE">
+
+		<id name="id" type="java.lang.String">
+			<column name="ID" length="50" />
+			<generator class="uuid.hex" />
+		</id>
+
+		<property name="code" type="java.lang.String">
+			<column name="CODE" />
+		</property>
+		<property name="name" type="java.lang.String">
+			<column name="NAME" />
+		</property>
+		<property name="createrId" type="java.lang.String">
+			<column name="CREATE_ID" />
+		</property>
+		<property name="createTime" type="java.util.Date">
+			<column name="CREATE_TIME" />
+		</property>
+		<property name="updateId" type="java.lang.String">
+			<column name="UPDATE_ID" />
+		</property>
+		<property name="updateTime" type="java.util.Date">
+			<column name="UPDATE_TIME" />
+		</property>
+		<property name="dsType" type="java.lang.Integer">
+			<column name="DS_TYPE" />
+		</property>
+		<property name="mappedCode" type="java.lang.String">
+			<column name="MAPPED_CODE" />
+		</property>
+		<property name="taskPeriod" type="java.lang.String">
+			<column name="TASK_PERIOD" />
+		</property>
+		<property name="dataCategory" type="java.lang.String">
+			<column name="DATA_CATEGORY" />
+		</property>
+		<property name="days" type="java.lang.Integer">
+			<column name="DAYS" />
+		</property>
+		<property name="tableDesc" type="java.lang.String">
+			<column name="TABLE_DESC" />
+		</property>
+		<property name="personType" type="java.lang.String">
+			<column name="PERSON_TYPE" />
+		</property>
+	</class>
+</hibernate-mapping>

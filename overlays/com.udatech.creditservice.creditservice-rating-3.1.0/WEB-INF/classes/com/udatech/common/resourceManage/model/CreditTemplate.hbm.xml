@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.udatech.common.resourceManage.model">
+	<class name="CreditTemplate" table="DZ_CREDIT_TEMPLATE">
+		<meta attribute="sync-DAO">false</meta>
+		<id column="ID" name="id" type="string">
+			<generator class="uuid" />
+		</id>
+		<property column="CREATE_TIME" generated="never" lazy="false"
+			name="createTime" not-null="true" type="timestamp" />
+		<property column="TITLE" generated="never" lazy="false"
+			length="500" name="title" type="string" />
+		<property column="CREDIT_NAME" generated="never" lazy="false"
+			length="200" name="creditName" type="string" />
+		<property column="STATUS" generated="never" lazy="false"
+			length="50" name="status" type="string" />
+		<property column="ISDEFAULT" generated="never" lazy="false"
+			name="isDefault" type="string" />
+		<property column="CATEGORY" generated="never" lazy="false"
+			name="category" type="string" />
+		<property column="USE_TYPE" generated="never" lazy="false"
+			name="useType" type="string" />
+		<property column="BG_IMG" generated="never" lazy="false"
+			name="bgImg" type="string" />
+		<property column="ADDRESS" generated="never" lazy="false"
+			name="address" type="string" />
+		<property column="REPORTSOURCE" generated="never" lazy="false"
+			name="reportSource" type="string" />
+		<property column="CONTACT" generated="never" lazy="false"
+			name="contact" type="string" />
+		<property column="CONTACTPHONE" generated="never" lazy="false"
+			name="contactPhone" type="string" />
+		<property column="DATAFROM" generated="never" lazy="false"
+			name="dataFrom" type="string" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.udatech.center.rule.model.Rule" table="DP_RULE">
+
+		<id name="id" type="java.lang.String">
+			<column name="ID" length="50" />
+			<generator class="uuid.hex" />
+		</id>
+
+		<property name="pattern" type="java.lang.String">
+			<column name="PATTERN" />
+		</property>
+		<property name="msg" type="java.lang.String">
+			<column name="MSG" />
+		</property>
+		<property name="ruleName" type="java.lang.String">
+			<column name="RULENAME" />
+		</property>
+		<property name="createId" type="java.lang.String">
+			<column name="CREATE_ID" />
+		</property>
+		<property name="createTime" type="java.util.Date">
+			<column name="CREATE_TIME" />
+		</property>
+		<property name="updateId" type="java.lang.String">
+			<column name="UPDATE_ID" />
+		</property>
+		<property name="updateTime" type="java.util.Date">
+			<column name="UPDATE_TIME" />
+		</property>
+		<property name="ruleType" type="java.lang.String">
+			<column name="RULE_TYPE" />
+		</property>
+		<property name="pluginClassName" type="java.lang.String">
+			<column name="PLUGIN_CLASS_NAME" />
+		</property>
+		<property name="pluginMethodName" type="java.lang.String">
+			<column name="PLUGIN_METHOD_NAME" />
+		</property>
+		<property name="defaultValue" type="java.lang.String">
+			<column name="DEFAULT_VALUE" />
+		</property>
+		<property name="userType" type="java.lang.String">
+			<column name="USER_TYPE" />
+		</property>
+	</class>
+</hibernate-mapping>

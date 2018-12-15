@@ -1,0 +1,26 @@
+html, body {height: 100%;}
+.Legend{position:absolute !important;top:160px !important;right:90px;z-index:2}
+.Legend label{display:block;font-size:14px}
+.level_box {color: #333333;position: absolute;right: 22px;top: 80px;z-index: 99;-webkit-user-select: none;}
+.nav-tabs>li {margin-bottom: -1px; }
+.nav>li>a {padding: 10px 12px}
+.close-icon{cursor:pointer !important;margin-left:10px;}
+.floatWin{position:absolute;top:120px;left:22px;z-index:3}
+input[type=checkbox], input[type=radio]{margin-right: 5px;position: relative;top: 2.4px;}
+.mao-select-wrap {color: #666666;margin-left: 20px;}
+#search {text-align: center;position: relative;}
+.autocomplete {border: 1px solid #9ACCFB;background-color: white;text-align: left;}
+.autocomplete li {list-style-type: none;}
+.clickable {cursor: default;}
+.highlight {background-color: #89C4F4;color:#fff;}
+.node {cursor: pointer;}
+#tabbable{top:20px}
+.tabs-scroller{position: absolute;top: 144px; bottom: 0;width: 18px;font-size: 1px;display: none;cursor: pointer;z-index:100}
+.tabs-scroller-left{background:url('../../images/creditCubic/leftScroll.png') no-repeat;left: 240px;position: absolute;}
+.tabs-scroller-right{background:url('../../images/creditCubic/rightScroll.png') no-repeat;right: 0;}
+.nav-tabs{/* overflow-x:hidden; */width:5000px;position:relative;left:0px;z-index:2;top:1px}
+.nav-tabs li:first-child {left:0;}
+.tab-content{position:relative;z-index:1}
+.defaultBg{background:url('../../images/creditCubic/atlasbg.gif') no-repeat;bakcground-size:100%;height:450px;}
+
+.extraBox{padding:40px 20px 20px !important;}

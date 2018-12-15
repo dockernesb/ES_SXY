@@ -1,0 +1,56 @@
+﻿@charset "utf-8";
+/* CSS Document */
+/*table*/
+.tablelist {
+	border: solid 1px #cbcbcb;
+	width: 100%;
+	clear: both;
+	margin-bottom: 10px
+}
+
+.tablelist th {
+	background: repeat-x bottom #f0f5f8;
+	height: 34px;
+	line-height: 34px;
+	border-bottom: solid 1px #b6cad2;
+	text-indent: 11px;
+	text-align: left;
+}
+
+.tablelist td {
+	line-height: 35px;
+	text-indent: 11px;
+	border-right: dotted 1px #c7c7c7;
+}
+
+.tableTitle {
+	margin-bottom: -5px;
+}
+
+.tablelist tbody tr.odd {
+	background: #f5f8fa;
+}
+
+.tablelist td {
+	border-bottom: 1px solid #b6cad2
+}
+
+.tablelist0 th {
+	text-align: right;
+	padding-right: 10px
+}
+
+.tablelist0 td {
+	border-left: dotted 1px #c7c7c7;
+}
+
+.portlet.box > .portlet-body {
+    background-color: #fff;
+    padding: 10px !important;
+}
+
+.tabbable-custom {
+    margin-bottom: 0px;
+    padding: 0px;
+    overflow: hidden;
+}

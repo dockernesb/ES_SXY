@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.udatech.common.model.DtCreditReportOperationLog" table="DT_CREDIT_REPORT_OPERATION_LOG">
+		<id name="reportOpId" type="java.lang.String">
+			<column length="50" name="REPORT_OP_ID" />
+			<generator class="uuid.hex" />
+		</id>
+		<property generated="never" lazy="false" name="applyId" type="java.lang.String">
+			<column length="50" name="APPLY_ID">
+				<comment>信用报告申请id</comment>
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="businessName" type="java.lang.String">
+			<column name="BUSINESS_NAME">
+				<comment>业务类型名称</comment>
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="operationDate" type="java.util.Date">
+			<column name="OPERATION_DATE">
+				<comment>操作时间</comment>
+			</column>
+		</property>
+		<property generated="never" lazy="false" name="remark" type="java.lang.String">
+			<column name="REMARK">
+			<comment>备注（审核意见）</comment>
+			</column>
+		</property>
+		<many-to-one class="com.wa.framework.user.model.SysUser" column="OPERATION_USER_ID" lazy="false" name="operationUser" />
+	</class>
+</hibernate-mapping>

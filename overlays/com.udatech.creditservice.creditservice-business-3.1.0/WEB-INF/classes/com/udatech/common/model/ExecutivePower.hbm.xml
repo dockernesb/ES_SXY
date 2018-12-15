@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.udatech.common.model.ExecutivePower" table="LD_XZQLML">
+		<id name="powerId" type="java.lang.String">
+			<column name="ID" length="50" />
+			<generator class="uuid.hex" />
+		</id>
+		<property name="status" type="java.lang.String">
+			<column name="status" length="1">
+				<comment>状态</comment>
+			</column>
+		</property>
+		<property name="powerCode" type="java.lang.String">
+			<column name="QL_CODE" length="50">
+				<comment>权力编码</comment>
+			</column>
+		</property>
+		<property name="powerType" type="java.lang.String">
+			<column name="QL_TYPE" length="2">
+				<comment>权力类型</comment>
+			</column>
+		</property>
+		<property name="powerName" type="java.lang.String">
+			<column name="QL_NAME" length="100">
+				<comment>权力名称</comment>
+			</column>
+		</property>
+		<property name="deptId" type="java.lang.String">
+			<column name="DEPT_ID" length="50">
+				<comment>实施主体部门id</comment>
+			</column>
+		</property>
+		<property name="according" type="java.lang.String">
+			<column name="ACCORDING" length="4000">
+				<comment>实施依据</comment>
+			</column>
+		</property>
+		<property name="xzxdrType" type="java.lang.String">
+			<column name="XZXDR_TYPE" length="2">
+				<comment>行政相对人类别</comment>
+			</column>
+		</property>
+		<property name="createTime" type="java.util.Date">
+			<column name="CREATE_TIME">
+				<comment>创建时间</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

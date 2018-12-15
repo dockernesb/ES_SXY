@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-9-4 11:06:44 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.udatech.common.model.StReportFontSizeConfig"
+		table="ST_REPORT_FONT_SIZE_CONFIG">
+		<comment>信用报告字体大小配置表</comment>
+		<id name="id" type="string">
+			<column name="ID" length="50" />
+			<generator class="assigned" />
+		</id>
+		<property name="coverBgbh" type="int">
+			<column name="COVER_BGBH" precision="2" scale="0">
+				<comment>封面报告编号</comment>
+			</column>
+		</property>
+		<property name="coverTitle" type="int">
+			<column name="COVER_TITLE" precision="2" scale="0">
+				<comment>封面标题</comment>
+			</column>
+		</property>
+		<property name="coverSign" type="int">
+			<column name="COVER_SIGN" precision="2" scale="0">
+				<comment>封面签章</comment>
+			</column>
+		</property>
+		<property name="coverDate" type="int">
+			<column name="COVER_DATE" precision="2" scale="0">
+				<comment>封面日期</comment>
+			</column>
+		</property>
+		<property name="mainBody" type="int">
+			<column name="MAIN_BODY" precision="2" scale="0">
+				<comment>正文</comment>
+			</column>
+		</property>
+		<property name="mainBodyTitle" type="int">
+			<column name="MAIN_BODY_TITLE" precision="2" scale="0">
+				<comment>正文标题</comment>
+			</column>
+		</property>
+		<property name="th" type="int">
+			<column name="TH" precision="2" scale="0">
+				<comment>列表头</comment>
+			</column>
+		</property>
+		<property name="td" type="int">
+			<column name="TD" precision="2" scale="0">
+				<comment>列表内容</comment>
+			</column>
+		</property>
+		<property name="createDate" type="date">
+			<column name="CREATE_DATE" length="7">
+				<comment>创建时间</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

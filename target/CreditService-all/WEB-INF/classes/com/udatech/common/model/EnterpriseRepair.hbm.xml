@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.udatech.common.model.EnterpriseRepair" table="DT_ENTERPRISE_REPAIR">
+		<id name="id" type="java.lang.String">
+			<column name="ID" />
+			<generator class="uuid.hex" />
+		</id>
+		<property name="zzjgdm" type="java.lang.String">
+			<column name="ZZJGDM">
+				<comment>组织机构代码</comment>
+			</column>
+		</property>
+		<property name="qymc" type="java.lang.String">
+			<column name="QYMC">
+				<comment>企业名称</comment>
+			</column>
+		</property>
+		<property name="gszch" type="java.lang.String">
+			<column name="GSZCH">
+				<comment>工商注册号</comment>
+			</column>
+		</property>
+		<property name="tyshxydm" type="java.lang.String">
+			<column name="TYSHXYDM">
+				<comment>统一社会信用代码</comment>
+			</column>
+		</property>
+		<property name="jbrxm" type="java.lang.String">
+			<column name="JBRXM">
+				<comment>经办人姓名</comment>
+			</column>
+		</property>
+		<property name="jbrsfzhm" type="java.lang.String">
+			<column name="JBRSFZHM">
+				<comment>经办人身份证号码</comment>
+			</column>
+		</property>
+		<property name="jbrlxdh" type="java.lang.String">
+			<column name="JBRLXDH">
+				<comment>经办人联系电话</comment>
+			</column>
+		</property>
+		<property name="xfzt" type="java.lang.String">
+			<column name="XFZT">
+				<comment>修复主题</comment>
+			</column>
+		</property>
+		<property name="xfbz" type="java.lang.String">
+			<column name="XFBZ">
+				<comment>修复备注</comment>
+			</column>
+		</property>
+		<property name="createDate" type="java.util.Date">
+			<column name="CREATE_DATE">
+				<comment>创建时间</comment>
+			</column>
+		</property>
+		<many-to-one name="createUser" column="CREATE_ID"
+			class="com.wa.framework.user.model.SysUser" lazy="false">
+		</many-to-one>
+	</class>
+</hibernate-mapping>

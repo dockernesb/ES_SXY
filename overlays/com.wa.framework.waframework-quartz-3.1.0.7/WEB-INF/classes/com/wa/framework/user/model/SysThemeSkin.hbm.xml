@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.wa.framework.user.model.SysThemeSkin" table="SYS_THEME_SKIN">
+
+		<id name="userId" type="java.lang.String">
+			<column name="USER_ID" length="50" />
+		</id>
+
+		<property name="themeColors" type="java.lang.String">
+			<column name="THEME_COLOR" />
+		</property>
+		<property name="layout" type="java.lang.String">
+			<column name="LAYOUT" />
+		</property>
+		<property name="themeStyle" type="java.lang.String">
+			<column name="THEME_STYLE" />
+		</property>
+		<property name="header" type="java.lang.String">
+			<column name="HEADER" />
+		</property>
+		<property name="topMenuDropdown" type="java.lang.String">
+			<column name="TOP_MENU_DROPDOWN" />
+		</property>
+		<property name="sidebarMode" type="java.lang.String">
+			<column name="SIDEBAR_MODE" />
+		</property>
+		<property name="sidebarMenu" type="java.lang.String">
+			<column name="SIDEBAR_MENU" />
+		</property>
+		<property name="sidebarStyle" type="java.lang.String">
+			<column name="SIDEBAR_STYLE" />
+		</property>
+		<property name="sidebarPosition" type="java.lang.String">
+			<column name="SIDEBAR_POSITION" />
+		</property>
+		<property name="footer" type="java.lang.String">
+			<column name="FOOTER" />
+		</property>
+		<property name="createTime" type="java.util.Date">
+			<column name="CREATE_TIME" />
+		</property>
+
+	</class>
+</hibernate-mapping>

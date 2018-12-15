@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.udatech.dataInterchange.model.DpFtpUploadLogEntity" table="DP_FTP_UPLOAD_LOG">
+        <id name="id">
+            <column name="ID" sql-type="varchar2(50)" length="50"/>
+            <generator class="uuid"/>
+        </id>
+        <property name="tableCode">
+            <column name="TABLE_CODE" sql-type="varchar2(50)" length="50"/>
+        </property>
+        <property name="xmlFileLocalPath">
+            <column name="XML_FILE_LOCAL_PATH" sql-type="varchar2(500)" length="500"/>
+        </property>
+        <property name="createTime">
+            <column name="CREATE_TIME" sql-type="date"/>
+        </property>
+        <property name="ftpStatus">
+            <column name="FTP_STATUS" sql-type="varchar2(50)" length="50"/>
+        </property>
+        <property name="ftpTime">
+            <column name="FTP_TIME" sql-type="date"/>
+        </property>
+        <property name="currentPage">
+            <column name="CURRENT_PAGE" sql-type="NUMBER"/>
+        </property>
+        <property name="allPage">
+            <column name="all_PAGE" sql-type="NUMBER"/>
+        </property>
+    </class>
+</hibernate-mapping>

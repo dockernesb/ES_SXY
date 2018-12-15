@@ -1,0 +1,8 @@
+form#ccl-upload-form {
+	position: absolute;
+	left: -1px;
+	top: -1px;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}

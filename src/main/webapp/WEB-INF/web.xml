@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+
+    <display-name>CreditService</display-name>
+    <welcome-file-list>
+        <welcome-file>loginCa.action</welcome-file>
+    </welcome-file-list>
+
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:spring/spring*.xml</param-value>
+    </context-param>
+
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    <!-- 赋值springApplicationContext -->
+    <listener>
+        <listener-class>com.wa.framework.web.SpringContext</listener-class>
+    </listener>
+
+    <listener>
+        <listener-class>com.wa.framework.listener.InitListener</listener-class>
+    </listener>
+
+    <!-- CSRF攻击防御 start -->
+    <filter>
+        <filter-name>CSRFFilter</filter-name>
+        <filter-class>com.wa.framework.security.filter.CSRFFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>CSRFFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <!-- CSRF攻击防御 end -->
+
+    <filter>
+        <filter-name>ResourceFilter</filter-name>
+        <filter-class>com.wa.framework.security.filter.ResourceFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>ResourceFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>encoding</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>utf-8</param-value>
+        </init-param>
+        <init-param>
+            <param-name>forceEncoding</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>encoding</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!-- 信用报告静态页面访问权限过滤 -->
+    <filter>
+        <filter-name>ReportViewAuthFilter</filter-name>
+        <filter-class>com.wa.framework.filter.ReportViewAuthFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>ReportViewAuthFilter</filter-name>
+        <url-pattern>/static_html/*</url-pattern>
+    </filter-mapping>
+
+    <!-- 会话过期跳转控制 start -->
+    <filter>
+        <filter-name>forwardFilter</filter-name>
+        <filter-class>com.wa.framework.security.ForwardFilter</filter-class>
+        <init-param>
+            <param-name>exceptUrls</param-name>
+            <param-value>/index.action,/reportQuery/generatePReportHtml.action,/reportQuery/generateReportHtml.action,/login.action,/loginCa.action
+            </param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>forwardFilter</filter-name>
+        <url-pattern>*.action</url-pattern>
+    </filter-mapping>
+    <!-- 会话过期跳转控制 end -->
+
+    <!-- shiro控制 start -->
+    <filter>
+        <filter-name>captchaFilter</filter-name>
+        <filter-class>com.wa.framework.security.filter.CaptchaFilter</filter-class>
+        <async-supported>true</async-supported>
+    </filter>
+    <filter-mapping>
+        <filter-name>captchaFilter</filter-name>
+        <url-pattern>/captcha.jpg</url-pattern>
+    </filter-mapping>
+    <filter>
+        <filter-name>shiroFilter</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+        <init-param>
+            <param-name>targetFilterLifecycle</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <init-param>
+            <param-name>staticSecurityManagerEnabled</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>shiroFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <!-- shiro控制 end -->
+
+    <!-- 过滤sql注入和xss start-->
+    <filter>
+        <filter-name>SqlAndXssFilter</filter-name>
+        <filter-class>com.wa.framework.security.XssAndSqlFilter</filter-class>
+        <init-param>
+            <param-name>exclusions</param-name>
+            <param-value>
+                /workflow/form/,/pagelist/form/export,/system/menu/add,/system/menu/edit,/report/temSave,/information/rules,/index,/login,/loginCa,/workflow/userDefButton/,/system/datapermission,/center/creditCubic/exportImage.action
+            </param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>SqlAndXssFilter</filter-name>
+        <url-pattern>*.jsp</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>SqlAndXssFilter</filter-name>
+        <url-pattern>*.html</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>SqlAndXssFilter</filter-name>
+        <url-pattern>*.action</url-pattern>
+    </filter-mapping>
+    <!-- 过滤sql注入和xss end-->
+
+    <filter>
+        <filter-name>hibernateFilter</filter-name>
+        <filter-class>org.springframework.orm.hibernate3.support.OpenSessionInViewFilter</filter-class>
+        <init-param>
+            <param-name>flushMode</param-name>
+            <param-value>AUTO</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>hibernateFilter</filter-name>
+        <url-pattern>*.action</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>VirtualPathFilter</filter-name>
+        <filter-class>com.wa.framework.security.filter.VirtualPathFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>VirtualPathFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!-- comet start -->
+    <servlet>
+        <description></description>
+        <display-name>pushServlet</display-name>
+        <servlet-name>pushServlet</servlet-name>
+        <servlet-class>com.wa.framework.common.comet.PushServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>pushServlet</servlet-name>
+        <url-pattern>/pushServlet</url-pattern>
+    </servlet-mapping>
+    <!-- comet end -->
+
+    <!-- cxf start -->
+    <servlet>
+        <servlet-name>cxf</servlet-name>
+        <servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>cxf</servlet-name>
+        <url-pattern>/services/*</url-pattern>
+    </servlet-mapping>
+    <!-- cxf end -->
+
+    <servlet>
+        <servlet-name>springMvc</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:spring/spring-mvc*.xml</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>springMvc</servlet-name>
+        <url-pattern>*.action</url-pattern>
+    </servlet-mapping>
+
+    <!-- 错误页面 start -->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/error404.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>403</error-code>
+        <location>/error403.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/error505.jsp</location>
+    </error-page>
+    <!-- 错误页面 end -->
+
+    <!-- 设置session时长，单位分钟 -->
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
+</web-app>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.udatech.center.schema.model.DpColumnVersionConfig"
+		table="DP_COLUMN_VERSION_CONFIG">
+
+		<id name="id" type="java.lang.String">
+			<column name="ID" length="50" />
+		</id>
+
+		<property name="tableVersionConfigId" type="java.lang.String">
+			<column name="TABLE_VERSION_CONFIG_ID" />
+		</property>
+		<property name="logicColumnId" type="java.lang.String">
+			<column name="LOGIC_COLUMN_ID" />
+		</property>
+		<property name="isNullable" type="java.lang.String">
+			<column name="IS_NULLABLE" />
+		</property>
+		<property name="requiredGroup" type="java.lang.String">
+			<column name="REQUIRED_GROUP" />
+		</property>
+		<property name="postil" type="java.lang.String">
+			<column name="POSTIL" />
+		</property>
+		<property name="fieldSort" type="java.lang.Integer">
+			<column name="FIELD_SORT" />
+		</property>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,189 @@
+@charset "utf-8";
+/* CSS Document */
+.printbg * {
+	margin: 0;
+	padding: 0
+}
+
+/* body { */
+/* 	font: 12px Microsoft YaHei, SimSun, Tahoma, Verdana, Arial, sans-serif, "FangSong", "NSimSun", "FangSong_GB2312"; */
+/* 	line-height: 25px; */
+/* 	color: #666; */
+/* 	background: #fff; */
+/* } */
+.printbg img {
+	border: 0px;
+	padding: 0px;
+	margin: 0px;
+	display: inline;
+}
+
+.printbg table {
+	border-collapse: collapse;
+	border-spacing: 0
+}
+
+.printbg h1 {
+	font-size: 38px;
+	line-height: 80px
+}
+
+.printbg h2 {
+	font-size: 16px;
+	line-height: 50px;
+}
+
+.printbg h3 {
+	font-size: 14px;
+}
+
+.printbg .pad_t20 {
+	padding-top: 20px
+}
+
+.printbg .pad_t100 {
+	padding-top: 100px !important;
+}
+
+.printbg .pad_t200 {
+	padding-top: 200px !important;
+}
+
+.printbg .pad_t300 {
+	padding-top: 300px !important;
+}
+
+.printbg .pad_b100 {
+	padding-bottom: 100px !important;
+}
+
+.printbg .f_16 {
+	font-size: 16px;
+	line-height: 30px
+}
+
+.printbg .tc {
+	text-align: center !important;
+}
+
+.printbg .tablePrint .right {
+	text-align: right !important
+}
+
+/* body { */
+/* 	background: url(../../images/creditReport/bj.png) repeat-y #fff top center; */
+/* } */
+
+/* @media print { */
+/* 	body { */
+/* 		background: url(../../images/creditReport/bj.png) repeat-y #fff top center; */
+/* 	} */
+/* } */
+.printbg .all {
+	width: 620px;
+	margin: 0 auto;
+	padding: 30px 80px;
+	overflow: hidden
+}
+
+.printbg {
+	background: url(../../images/creditReport/defaultbj.png) repeat-y #fff top center;
+}
+
+@media print {
+	.printbg {
+		background: url(../../images/creditReport/defaultbj.png) repeat-y #fff top center;
+	}
+}
+
+.printbg .cover {
+	padding-top: 130px;
+	padding-bottom: 20px
+}
+
+.printbg .content {
+	padding-top: 20px;
+}
+
+.printbg .content p {
+	text-indent: 20px;
+}
+
+.printbg .tit1 {
+	margin: 50px 0px 20px 0;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.printbg .tit2 {
+	font-size: 16px;
+	line-height: 30px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+.printbg .tablePrint {
+	width: 100%
+}
+
+.printbg .tablePrint th {
+	font-weight: bold;
+	font-size: 14px;
+	min-width: 70px
+}
+
+.printbg .tablePrint th, .printbg .tablePrint td {
+	border: 1px solid #666 !important;
+	height: 24px;
+	line-height: 24px;
+	padding: 5px;
+	text-align: center;
+}
+
+.printbg .remark {
+	text-indent: 20px;
+	margin: 30px 0;
+}
+
+.printbtn {
+	text-decoration: none;
+	display: inline-block;
+	margin-bottom: 0;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.42857143;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	background-image: none;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	border-width: 0;
+	padding: 7px 14px;
+	outline: none !important;
+	filter: none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	text-shadow: none;
+	color: #fff;
+	background-color: #89C4F4;
+	border-color: #72b8f2;
+	float: right;
+	position: relative;
+	top: 60px;
+	right: 60px;
+}
+
+.printbtn:hover, .printbtn:focus, .printbtn:active, .printbtn.active {
+	color: #fff;
+	background-color: #68b4f1;
+	border-color: #43a1ed;
+}

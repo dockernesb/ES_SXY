@@ -1,0 +1,288 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.udatech.creditservice</groupId>
+  <artifactId>creditservice</artifactId>
+  <version>3.1.0</version>
+  <packaging>war</packaging>
+  
+  <properties>
+		<finalName>CreditService-all</finalName>
+		<!-- 防止resource下面存在中文导致乱码 -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java-version>1.7</java-version>
+		<creditService.common-version>3.1.0</creditService.common-version>
+        <creditService.rating-version>3.1.0</creditService.rating-version>
+        <creditService.analysis-version>3.1.0</creditService.analysis-version>
+        <creditService.promise-version>3.1.0</creditService.promise-version>
+        <creditService.subject-version>3.1.0</creditService.subject-version>
+        <creditService.decision-version>3.1.0</creditService.decision-version>
+        <creditService.business-version>3.1.0</creditService.business-version>
+        <creditService.data-process-version>3.1.0</creditService.data-process-version>
+        <creditService.blood-relation-version>3.1.0</creditService.blood-relation-version>
+	    <creditService.achievements-version>3.0.1</creditService.achievements-version>
+  </properties>
+
+	<dependencies>
+	    <!-- 公信力基础模块，公信力所有模块都需要依赖  -->
+		<dependency>
+			<groupId>com.udatech.creditservice</groupId>
+			<artifactId>creditservice-common</artifactId>
+			<version>${creditService.common-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.udatech.creditservice</groupId>
+			<artifactId>creditservice-common</artifactId>
+			<version>${creditService.common-version}</version>
+			<type>war</type>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.udatech.creditservice</groupId>
+			<artifactId>creditservice-promise</artifactId>
+			<version>${creditService.promise-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.udatech.creditservice</groupId>
+			<artifactId>creditservice-promise</artifactId>
+			<version>${creditService.promise-version}</version>
+			<type>war</type>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.udatech.creditservice</groupId>
+			<artifactId>creditservice-rating</artifactId>
+			<version>${creditService.rating-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.udatech.creditservice</groupId>
+			<artifactId>creditservice-rating</artifactId>
+			<version>${creditService.rating-version}</version>
+			<type>war</type>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.udatech.creditservice</groupId>
+			<artifactId>creditservice-decision</artifactId>
+			<version>${creditService.decision-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.udatech.creditservice</groupId>
+			<artifactId>creditservice-decision</artifactId>
+			<version>${creditService.decision-version}</version>
+			<type>war</type>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.udatech.creditservice</groupId>
+			<artifactId>creditservice-subject</artifactId>
+			<version>${creditService.subject-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.udatech.creditservice</groupId>
+			<artifactId>creditservice-subject</artifactId>
+			<version>${creditService.subject-version}</version>
+			<type>war</type>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.udatech.creditservice</groupId>
+			<artifactId>creditservice-analysis</artifactId>
+			<version>${creditService.analysis-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.udatech.creditservice</groupId>
+			<artifactId>creditservice-analysis</artifactId>
+			<version>${creditService.analysis-version}</version>
+			<type>war</type>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.udatech.creditservice</groupId>
+			<artifactId>creditservice-business</artifactId>
+			<version>${creditService.business-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.udatech.creditservice</groupId>
+			<artifactId>creditservice-business</artifactId>
+			<version>${creditService.business-version}</version>
+			<type>war</type>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.udatech.creditservice</groupId>
+			<artifactId>creditservice-data-process</artifactId>
+			<version>${creditService.data-process-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.udatech.creditservice</groupId>
+			<artifactId>creditservice-data-process</artifactId>
+			<version>${creditService.data-process-version}</version>
+			<type>war</type>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.udatech.creditservice</groupId>
+			<artifactId>creditservice-blood-relation</artifactId>
+			<version>${creditService.blood-relation-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.udatech.creditservice</groupId>
+			<artifactId>creditservice-blood-relation</artifactId>
+			<version>${creditService.blood-relation-version}</version>
+			<type>war</type>
+		</dependency>
+		<dependency>
+			<groupId>com.udatech.creditservice</groupId>
+			<artifactId>creditservice-achievements</artifactId>
+			<version>${creditService.achievements-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.udatech.creditservice</groupId>
+			<artifactId>creditservice-achievements</artifactId>
+			<version>${creditService.achievements-version}</version>
+			<type>war</type>
+		</dependency>
+		<dependency>
+			<groupId>com.udatech.ca</groupId>
+			<artifactId>SVSClient</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.udatech.ca</groupId>
+			<artifactId>BJCA_LOG</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		
+	</dependencies>
+	
+	<!-- 指定仓库 -->
+	<repositories>
+		<repository>
+			<id>nexus</id>
+			<name>Team Nexus Repository</name>
+			<url>http://project.citgc.com:8081/nexus/content/groups/public</url>
+		</repository>
+	</repositories>
+	<!-- 指定插件仓库 -->
+	<pluginRepositories>
+		<pluginRepository>
+			<id>nexus</id>
+			<name>Team Nexus Repository</name>
+			<url>http://project.citgc.com:8081/nexus/content/groups/public</url>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<!-- 部署构件到Nexus仓库 -->
+	<distributionManagement>
+		<repository>
+			<id>releases</id><!-- 与settings里的server的id对应，使用deploy命令 -->
+			<name>Internal Releases</name>
+			<url>http://project.citgc.com:8081/nexus/content/repositories/thirdparty</url>
+		</repository>
+	</distributionManagement>
+	
+  <build>
+    <finalName>${finalName}</finalName>
+	<plugins>  
+	    <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-source-plugin</artifactId>
+            <version>2.2.1</version>
+            <executions>
+                <execution>
+                    <id>attach-sources</id>
+                    <goals>
+                        <goal>jar</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+        
+        <plugin>
+	        <groupId>org.apache.maven.plugins</groupId>
+	        <artifactId>maven-compiler-plugin</artifactId>
+	        <version>3.1</version>
+	        <configuration>
+	          <source>${java-version}</source>
+	          <target>${java-version}</target>
+	        </configuration>
+	      </plugin>	
+        
+        <plugin>
+		    <groupId>org.apache.maven.plugins</groupId>  
+			<artifactId>maven-war-plugin</artifactId>
+			<version>2.3</version>
+			<configuration>
+				<!-- <warSourceDirectory>WebContent</warSourceDirectory> -->
+				<!-- <failOnMissingWebXml>false</failOnMissingWebXml> -->
+				<webResources>  
+                   	<resource>  
+                       	<!-- 元配置文件的目录，相对于pom.xml文件的路径 -->  
+                       	<directory>src/main/resources</directory> 
+ 
+                       	<!-- 是否过滤文件，也就是是否启动auto-config的功能 -->  
+                       	<filtering>true</filtering>  
+ 
+                       	<!-- 目标路径 -->  
+                       	<targetPath>WEB-INF/classes</targetPath>  
+                   	</resource>  
+               	</webResources>
+				<!-- 配置此项是防止缺失web.xml文件导致项目打包失败,因为此项目将被用于web整合,
+					web整合时各个web模块的同名文件以上级项目优先级最高,也就是说本项目web.xml将被覆盖,
+                    因此本项目可以不具备web.xml文件,为了防止本项目不具备web.xml文件从而导致打包失败, 故配置此项。 -->
+				<failOnMissingWebXml>false</failOnMissingWebXml>
+				<packagingExcludes>WEB-INF/web.xml</packagingExcludes>
+				<overlays>
+					<!--  这里overlay的次序很重要，被依赖的要放在最上面 -->
+					<overlay>
+						<groupId>com.udatech.creditservice</groupId>
+						<artifactId>creditservice-common</artifactId>
+					</overlay>
+					<overlay>
+						<groupId>com.udatech.creditservice</groupId>
+						<artifactId>creditservice-blood-relation</artifactId>
+					</overlay>
+					<overlay>
+						<groupId>com.udatech.creditservice</groupId>
+						<artifactId>creditservice-data-process</artifactId>
+					</overlay>
+					<overlay>
+						<groupId>com.udatech.creditservice</groupId>
+						<artifactId>creditservice-business</artifactId>
+					</overlay>
+					<overlay>
+						<groupId>com.udatech.creditservice</groupId>
+						<artifactId>creditservice-decision</artifactId>
+					</overlay>
+					<overlay>
+						<groupId>com.udatech.creditservice</groupId>
+						<artifactId>creditservice-subject</artifactId>
+					</overlay>
+					<overlay>
+						<groupId>com.udatech.creditservice</groupId>
+						<artifactId>creditservice-analysis</artifactId>
+					</overlay>
+					<overlay>
+						<groupId>com.udatech.creditservice</groupId>
+						<artifactId>creditservice-rating</artifactId>
+					</overlay>
+					<overlay>
+						<groupId>com.udatech.creditservice</groupId>
+						<artifactId>creditservice-promise</artifactId>
+					</overlay>
+				</overlays>
+			</configuration>
+		</plugin>
+	</plugins> 
+	
+	<resources>
+		<resource>
+			<directory>src/main/java</directory>
+			<includes>
+				<include>**/*.hbm.xml</include>
+			</includes>
+		</resource>
+	</resources>
+  </build>
+
+</project>

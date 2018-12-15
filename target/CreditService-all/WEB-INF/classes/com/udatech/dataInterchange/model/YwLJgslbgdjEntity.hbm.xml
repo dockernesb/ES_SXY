@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.udatech.dataInterchange.model.YwLJgslbgdjEntity" table="YW_L_JGSLBGDJ">
+        <id name="id">
+            <column name="ID" sql-type="varchar2(50)" length="50"/>
+        </id>
+        <property name="status">
+            <column name="STATUS" sql-type="varchar2(2)" length="2"/>
+        </property>
+        <property name="source">
+            <column name="SOURCE" sql-type="varchar2(2)" length="2" />
+        </property>
+        <property name="createTime">
+            <column name="CREATE_TIME" sql-type="date" />
+        </property>
+        <property name="createUser">
+            <column name="CREATE_USER" sql-type="varchar2(50)" length="50" />
+        </property>
+        <property name="bmbm">
+            <column name="BMBM" sql-type="varchar2(50)" length="50" />
+        </property>
+        <property name="bmmc">
+            <column name="BMMC" sql-type="varchar2(200)" length="200" />
+        </property>
+        <property name="tgrq">
+            <column name="TGRQ" sql-type="date" />
+        </property>
+        <property name="rwbh">
+            <column name="RWBH" sql-type="varchar2(50)" length="50" />
+        </property>
+        <property name="zzjgdm">
+            <column name="ZZJGDM" sql-type="varchar2(200)" length="200" />
+        </property>
+        <property name="jgqcyw">
+            <column name="JGQCYW" sql-type="varchar2(200)" length="200" />
+        </property>
+        <property name="jgqc">
+            <column name="JGQC" sql-type="varchar2(800)" length="800" />
+        </property>
+        <property name="gszch">
+            <column name="GSZCH" sql-type="varchar2(200)" length="200" />
+        </property>
+        <property name="tyshxydm">
+            <column name="TYSHXYDM" sql-type="varchar2(200)" length="200" />
+        </property>
+        <property name="bz">
+            <column name="BZ" sql-type="varchar2(4000)" length="4000" />
+        </property>
+        <property name="sldjlx">
+            <column name="SLDJLX" sql-type="varchar2(100)" length="100" />
+        </property>
+        <property name="zl">
+            <column name="ZL" sql-type="varchar2(200)" length="200" />
+        </property>
+        <property name="fddbrxm">
+            <column name="FDDBRXM" sql-type="varchar2(250)" length="250" />
+        </property>
+        <property name="fddbrzjlx">
+            <column name="FDDBRZJLX" sql-type="varchar2(250)" length="250" />
+        </property>
+        <property name="fddbrzjhm">
+            <column name="FDDBRZJHM" sql-type="varchar2(250)" length="250" />
+        </property>
+        <property name="zczj">
+            <column name="ZCZJ" sql-type="number(*)" precision="2147483646" />
+        </property>
+        <property name="sszj">
+            <column name="SSZJ" sql-type="number(*)" precision="2147483646" />
+        </property>
+        <property name="jyfw">
+            <column name="JYFW" sql-type="varchar2(4000)" length="4000" />
+        </property>
+        <property name="qylxdm">
+            <column name="QYLXDM" sql-type="varchar2(200)" length="200" />
+        </property>
+        <property name="qylxmc">
+            <column name="QYLXMC" sql-type="varchar2(200)" length="200" />
+        </property>
+        <property name="sshymc">
+            <column name="SSHYMC" sql-type="varchar2(200)" length="200" />
+        </property>
+        <property name="sshydm">
+            <column name="SSHYDM" sql-type="varchar2(200)" length="200" />
+        </property>
+        <property name="jgdz">
+            <column name="JGDZ" sql-type="varchar2(500)" length="500" />
+        </property>
+        <property name="fzjgmc">
+            <column name="FZJGMC" sql-type="varchar2(200)" length="200" />
+        </property>
+        <property name="fzrq">
+            <column name="FZRQ" sql-type="date" />
+        </property>
+        <property name="hzrq">
+            <column name="HZRQ" sql-type="date" />
+        </property>
+        <property name="jjlx">
+            <column name="JJLX" sql-type="varchar2(200)" length="200" />
+        </property>
+        <property name="xzqh">
+            <column name="XZQH" sql-type="varchar2(500)" length="500" />
+        </property>
+        <property name="lxdh">
+            <column name="LXDH" sql-type="varchar2(100)" length="100" />
+        </property>
+        <property name="jgdw">
+            <column name="JGDW" sql-type="varchar2(200)" length="200" />
+        </property>
+        <property name="gdfqr">
+            <column name="GDFQR" sql-type="varchar2(200)" length="200" />
+        </property>
+        <property name="zjbz">
+            <column name="ZJBZ" sql-type="varchar2(50)" length="50" />
+        </property>
+        <property name="jhdwqc">
+            <column name="JHDWQC" sql-type="varchar2(200)" length="200" />
+        </property>
+        <property name="longitude">
+            <column name="LONGITUDE" sql-type="number(11,7)" precision="11" scale="7" />
+        </property>
+        <property name="latitude">
+            <column name="LATITUDE" sql-type="number(11,7)" precision="11" scale="7" />
+        </property>
+        <property name="hasLngLat">
+            <column name="HAS_LNG_LAT" sql-type="char(1)" length="1" />
+        </property>
+        <property name="isAddressChange">
+            <column name="IS_ADDRESS_CHANGE" sql-type="char(1)" length="1" />
+        </property>
+    </class>
+</hibernate-mapping>

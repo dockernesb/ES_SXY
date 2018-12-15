@@ -1,0 +1,466 @@
+var penaltyList = (function () {
+    /*定义一个全局数组，记录列表选中的数据勾线导出*/
+    var rowIds = [];
+
+    $("#status").select2({
+        placeholder: '全部状态',
+        minimumResultsForSearch: -1,
+        language: 'zh-CN'
+    });
+    $("#status").val(null).trigger('change');
+    resizeSelect2($("#status"));
+
+    var start = {
+        elem: '#startDate',
+        format: 'YYYY-MM-DD',
+        max: '2099-12-30', // 最大日期
+        min: '1900-01-01', // 最小日期
+        istime: false,
+        istoday: false,// 是否显示今天
+        isclear: false, // 是否显示清空
+        issure: false, // 是否显示确认
+        choose: function (datas) {
+            laydatePH('#startDate', datas);
+            end.min = datas; // 开始日选好后，重置结束日的最小日期
+            end.start = datas // 将结束日的初始值设定为开始日
+        }
+    };
+    var end = {
+        elem: '#endDate',
+        format: 'YYYY-MM-DD',
+        max: '2099-12-30', // 最大日期
+        min: '1900-01-01', // 最小日期
+        istime: false,
+        istoday: false,// 是否显示今天
+        isclear: false, // 是否显示清空
+        issure: false, // 是否显示确认
+        choose: function (datas) {
+            laydatePH('#endDate', datas);
+            start.max = datas; // 结束日选好后，重置开始日的最大日期
+        }
+    };
+
+    var publicityStartDate = {
+        elem: '#publicityStartDate',
+        format: 'YYYY-MM-DD',
+        max: '2099-12-30', // 最大日期
+        min: '1900-01-01', // 最小日期
+        istime: false,
+        istoday: false,// 是否显示今天
+        isclear: false, // 是否显示清空
+        issure: false, // 是否显示确认
+        choose: function (datas) {
+            laydatePH('#publicityStartDate', datas);
+            publicityEndDate.min = datas; // 开始日选好后，重置结束日的最小日期
+            publicityEndDate.start = datas // 将结束日的初始值设定为开始日
+        }
+    };
+    var publicityEndDate = {
+        elem: '#publicityEndDate',
+        format: 'YYYY-MM-DD',
+        max: '2099-12-30', // 最大日期
+        min: '1900-01-01', // 最小日期
+        istime: false,
+        istoday: false,// 是否显示今天
+        isclear: false, // 是否显示清空
+        issure: false, // 是否显示确认
+        choose: function (datas) {
+            laydatePH('#publicityEndDate', datas);
+            publicityStartDate.max = datas; // 结束日选好后，重置开始日的最大日期
+        }
+    };
+    laydate(start);
+    laydate(end);
+    laydate(publicityStartDate);
+    laydate(publicityEndDate);
+
+    var table = $('#penaltyGrid').DataTable(// 创建一个Datatable
+        {
+            ajax: {
+                url: CONTEXT_PATH + "/center/publicity/getPenaltyList.action",
+                type: 'post'
+            },
+            serverSide: true,// 如果是服务器方式，必须要设置为true
+            processing: true,// 设置为true,就会有表格加载时的提示
+            lengthChange: true,// 是否允许用户改变表格每页显示的记录数
+            pageLength: 10,
+            searching: false,// 是否允许Datatables开启本地搜索
+            paging: true,
+            ordering: false,
+            autoWidth: false,
+            columns: [{
+                "data": "", // checkBox
+                render: function (data, type, full) {
+                    return '<input type="checkbox" name="checkThis" class="icheck">';
+                }
+            }, {
+                "data": "AJMC"
+            }, {
+                "data": "XZXDRMC",
+                "render": function (data, type, row) {
+                    var str = "";
+                    if (!isNull(data)) {
+                        str = "<a href='javascript:void(0);' onclick='penaltyList.showDetail(\"" + row.ID + "\")'>" + data + "</a>";
+                    }
+                    return str;
+                }
+            }, {
+                "data": "TYSHXYDM",
+                "visible": false
+            }, {
+                "data": "FDDBRSFZH",
+                "visible": false
+            }, {
+                "data": "CFZL"
+            }, {
+                "data": "CFSXQ"
+            }, {
+                "data": "CFJGMC"
+            }, {
+                "data": "BMMC"
+            }, {
+                "data": "CREATE_TIME"
+            }, {
+                "data": "STATUS",
+                "render": function (data, type, row) {
+                    if (data == 0) {
+                        return "正常";
+                    } else if (data == 1) {
+                        return "撤销";
+                    } else if (data == 2) {
+                        return "异议";
+                    } else if (data == 3) {
+                        return "其他";
+                    } else {
+                        return "未知";
+                    }
+                }
+            }, {
+                "data": null,
+                "render": function (data, type, row) {
+                    var opts = "<a href='javascript:void(0);' class='opbtn btn btn-xs green-meadow' onclick='penaltyList.showDetail(\"" + row.ID + "\")'>查看</a>";
+                    if (row.STATUS == 1) {
+                        opts += "<a href='javascript:void(0);' class='opbtn btn btn-xs green-meadow' onclick='penaltyList.changePenaltyStatus(\"" + row.ID + "\", \"0\")'>恢复公示</a>";
+                    } else if (row.STATUS == 0) {
+                        opts += "<a href='javascript:void(0);' class='opbtn btn btn-xs green-meadow' onclick='penaltyList.changePenaltyStatus(\"" + row.ID + "\", \"1\")'>取消公示</a>";
+                    }
+                    return opts;
+                }
+            }],
+            initComplete: function (settings, data) {
+                var columnTogglerContent = $('#columnTogglerContent').clone();
+                $(columnTogglerContent).removeClass('hide');
+                var columnTogglerDiv = $(table.table().node()).parent().prev('div.ttop').find('.columnToggler').eq(0);
+                $(columnTogglerDiv).html(columnTogglerContent);
+
+                $(columnTogglerContent).find('input[type="checkbox"]').iCheck({
+                    labelHover: false,
+                    checkboxClass: 'icheckbox_square-blue',
+                    radioClass: 'iradio_square-blue',
+                    increaseArea: '20%'
+                });
+
+                // 显示隐藏列
+                $(columnTogglerContent).find('input[type="checkbox"]').on('ifChanged', function (e) {
+                    e.preventDefault();
+                    // Get the column API object
+                    var column = table.column($(this).attr('data-column'));
+                    // Toggle the visibility
+                    column.visible(!column.visible());
+                });
+            },
+            drawCallback: function (settings) {
+                $('#penaltyGrid .checkall').iCheck('uncheck');
+                $('#penaltyGrid .checkall, #penaltyGrid tbody .icheck').iCheck({
+                    labelHover: false,
+                    cursor: true,
+                    checkboxClass: 'icheckbox_square-blue',
+                    radioClass: 'iradio_square-blue',
+                    increaseArea: '20%'
+                });
+
+                // 列表复选框选中取消事件
+                var checkAll = $('#penaltyGrid .checkall');
+                var checkboxes = $('#penaltyGrid tbody .icheck');
+                checkAll.on('ifChecked ifUnchecked', function (event) {
+                    if (event.type == 'ifChecked') {
+                        checkboxes.iCheck('check');
+                        $('#penaltyGrid tbody tr').addClass('active');
+                    } else {
+                        checkboxes.iCheck('uncheck');
+                        $('#penaltyGrid tbody tr').removeClass('active');
+                    }
+                });
+                checkboxes.on('ifChanged', function (event) {
+                    if (checkboxes.filter(':checked').length == checkboxes.length) {
+                        checkAll.prop('checked', 'checked');
+                    } else {
+                        checkAll.removeProp('checked');
+                    }
+                    checkAll.iCheck('update');
+                    var selectedData = table.rows($(this).closest('tr')).data();
+                    if ($(this).is(':checked')) {
+                        $(this).closest('tr').addClass('active');
+                        if (!rowIds.contains(selectedData[0].ID)) {
+                            rowIds.push(selectedData[0].ID)
+                        }
+                    } else {
+                        rowIds.remove(selectedData[0].ID);
+                        $(this).closest('tr').removeClass('active');
+                    }
+                });
+
+                // 添加行选中点击事件
+                $('#penaltyGrid tbody tr').on('click', function () {
+                    $(this).toggleClass('active');
+                    if ($(this).hasClass('active')) {
+                        $(this).find('.icheck').iCheck('check');
+                    } else {
+                        $(this).find('.icheck').iCheck('uncheck');
+                    }
+                });
+            }
+        });
+
+    // 开始|停止公示
+    function changePenaltyStatus(id, status) {
+        var tips = status == 0 ? "确认恢复公示吗？" : "确认取消公示吗？";
+        layer.confirm(tips, {
+            icon: 3
+        }, function (index) {
+            loading();
+            $.post(CONTEXT_PATH + "/center/publicity/changePenaltyStatus.action", {
+                "id": id,
+                "status": status
+            }, function (data) {
+                loadClose();
+                if (!data.result) {
+                    $.alert('操作失败!', 2);
+                } else {
+                    layer.close(index);
+                    $.alert('操作成功!', 1);
+                    conditionSearch();
+                }
+            }, "json");
+        });
+    }
+
+    // 显示行政许可详情
+    function showDetail(id) {
+        loading();
+        $.getJSON(CONTEXT_PATH + "/center/publicity/getDetailPenaltyById.action", {
+            id: id
+        }, function (data) {
+            loadClose();
+            var detail = data;
+            $.each($("span.text"), function (i, obj) {
+                var id = $(obj).attr("id");
+                var text = detail[id] || "&nbsp;";
+                if (id == "DQZT") {
+                    switch (text) {
+                        case '0' :
+                            text = '正常';
+                            break;
+                        case '1' :
+                            text = '撤销';
+                            break;
+                        case '2' :
+                            text = '异议';
+                            break;
+                        case '3' :
+                            text = '其他';
+                            break;
+                        default :
+                            text = '未知';
+                            break;
+                    }
+                }
+                if (id == "SYFW") {
+                    switch (text) {
+                        case '0' :
+                            text = '公示';
+                            break;
+                        case '1' :
+                            text = '内部共享';
+                            break;
+                        case '2' :
+                            text = '授权查询';
+                            break;
+                        default :
+                            text = '未知';
+                            break;
+                    }
+                }
+                if (id == "SPLB") {
+                    switch (text) {
+                        case '0' :
+                            text = '普通许可';
+                            break;
+                        case '1' :
+                            text = '特许认可';
+                            break;
+                        case '2' :
+                            text = '核准登记';
+                            break;
+                        case '3' :
+                            text = '其他';
+                            break;
+                        default :
+                            text = '未知';
+                            break;
+                    }
+                }
+                if (id == "CFDJ") {//处罚等级，失信严重程度（未定，一般、较重、严重）
+                    switch (text) {
+                        case '0' :
+                            text = '未定';
+                            break;
+                        case '1' :
+                            text = '一般';
+                            break;
+                        case '2' :
+                            text = '较重';
+                            break;
+                        case '3' :
+                            text = '严重';
+                            break;
+                        default :
+                            text = '未知';
+                            break;
+                    }
+                }
+                $(obj).html(text);
+                $(obj).attr("title", text);
+            });
+
+            $.openWin({
+                title: '行政处罚信息',
+                content: $("#details"),
+                btnAlign: 'c',
+                btn: ["关闭"],
+                area: ['600px', '520px'],
+                yes: function (index, layero) {
+                    layer.close(index);
+                }
+            });
+        })
+    }
+
+    $("#startPenalty").click(function () {
+        penalty(true);
+    });
+    $("#cancelPenalty").click(function () {
+        penalty(false);
+    });
+    $("#exportResult").click(function () {
+        exportResult();
+    });
+
+    function penalty(isStart) {
+        var msg = "确认要公示这些数据吗？";
+        if (!isStart) {
+            msg = "确认要取消公示这些数据吗？";
+        }
+        var rows = new Array();
+        var selectedRows = table.rows('.active').data();
+        $.each(selectedRows, function (i, selectedRowData) {
+            rows.push(selectedRowData);
+        });
+
+        // check
+        if (isNull(rows) || rows.length == 0) {
+            $.alert('请勾选至少一条记录！');
+            return;
+        }
+
+        var dataArray = new Array();
+        $.each(rows, function (i, row) {
+            dataArray.push(row.ID);
+        });
+
+        layer.confirm(msg, {
+            icon: 3
+        }, function (index) {
+            loading();
+            $.post(CONTEXT_PATH + "/center/publicity/batchChangePenaltyStatus.action", {
+                ids: JSON.stringify(dataArray),
+                isStart: isStart
+            }, function (data) {
+                loadClose();
+                if (!data.result) {
+                    $.alert('操作失败!', 2);
+                } else {
+                    layer.close(index);
+                    $.alert('操作成功!', 1);
+                    table.ajax.reload();
+                }
+            }, "json");
+        });
+
+    }
+
+    // 导出查询结果
+    function exportResult() {
+        var rows = new Array();
+        var selectedRows = table.rows().data();
+        $.each(selectedRows, function (i, selectedRowData) {
+            rows.push(selectedRowData);
+        });
+
+        // check
+        if (isNull(rows) || rows.length == 0) {
+            $.alert('无数据，不可导出！');
+            return;
+        }
+
+        if (rowIds.length !== 0) {
+            layer.confirm('确定按照所有勾选数据进行导出吗？', {}, function () {
+                layer.msg('正在导出结果，请稍候...', {icon: 1, time: 5000});
+                document.location = CONTEXT_PATH + "/center/publicity/exportPenaltyResult.action?rowIds=" + rowIds;
+            });
+        } else {
+            layer.confirm('确定要导出全部数据记录吗？', {}, function () {
+                layer.msg('正在导出结果，请稍候...', {icon: 1, time: 5000});
+                document.location = CONTEXT_PATH + "/center/publicity/exportPenaltyResult.action";
+            });
+
+        }
+
+
+    }
+
+    // 查询按钮
+    function conditionSearch() {
+        rowIds = [];//清空选中的数据
+        if (table) {
+            var data = table.settings()[0].ajax.data;
+            if (!data) {
+                data = {};
+                table.settings()[0].ajax["data"] = data;
+            }
+            data["xzxdr"] = $.trim($('#xzxdr').val());
+            data["cfjgmc"] = $.trim($('#cfjgmc').val());
+            data["bmmc"] = $.trim($('#bmmc').val());
+            data["startDate"] = $.trim($('#startDate').val());
+            data["endDate"] = $.trim($('#endDate').val());
+            data["publicityStartDate"] = $.trim($('#publicityStartDate').val());
+            data["publicityEndDate"] = $.trim($('#publicityEndDate').val());
+            data["status"] = $.trim($('#status').val());
+            table.ajax.reload();
+        }
+    }
+
+    // 重置
+    function conditionReset() {
+        resetSearchConditions('#xzxdr,#startDate,#endDate,#cfjgmc,#bmmc,#publicityStartDate,#publicityEndDate,#status');
+        resetDate(start, end, publicityStartDate, publicityEndDate);
+    }
+
+    return {
+        "showDetail": showDetail,
+        "changePenaltyStatus": changePenaltyStatus,
+        "conditionSearch": conditionSearch,
+        "conditionReset": conditionReset
+    };
+
+})();

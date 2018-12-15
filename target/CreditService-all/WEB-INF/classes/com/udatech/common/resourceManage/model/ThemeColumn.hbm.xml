@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.udatech.common.resourceManage.model">
+	<class name="ThemeColumn" table="DZ_THEME_COLUMN">
+		<meta attribute="sync-DAO">false</meta>
+		<id column="ID" name="id" type="string">
+			<generator class="uuid" />
+		</id>
+		<property column="CREATE_TIME" generated="never" lazy="false"
+			name="createTime" not-null="true" type="timestamp" />
+		<property column="THEME_ID" generated="never" lazy="false"
+			length="50" name="themeId" type="string" />
+		<property column="COLUMN_NAME" generated="never" lazy="false"
+			length="200" name="columnName" type="string" />
+		<property column="COLUMN_COMMENTS" generated="never" lazy="false"
+			length="200" name="columnComments" type="string" />
+		<property column="COLUMN_ALIAS" generated="never" lazy="false"
+			length="200" name="columnAlias" type="string" />
+
+		<property column="DISPLAY_ORDER" name="displayOrder" type="integer" />
+		<property column="DATA_ORDER" name="dataOrder" type="string" />
+	</class>
+</hibernate-mapping>
